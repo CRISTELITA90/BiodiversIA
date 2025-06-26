@@ -1,0 +1,5953 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_24ad18f9dfdfe0fb358d3c46e55880f5 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_24ad18f9dfdfe0fb358d3c46e55880f5" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_24ad18f9dfdfe0fb358d3c46e55880f5 = L.map(
+                "map_24ad18f9dfdfe0fb358d3c46e55880f5",
+                {
+                    center: [28.5, -15.5],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a1e53cd17ec701ddc4f7f5ce805647e1 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_a1e53cd17ec701ddc4f7f5ce805647e1.addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var marker_f1e7cd2f44446a0e85533689da371332 = L.marker(
+                [28.766642, -17.77071],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_cce04a843e33013d3644f9fc8ec7e53a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a6a280c05ac26ce5447898979ac55d4a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2d1d482ada29bbfab7dfeb03be32e8ab = $(`<div id="html_2d1d482ada29bbfab7dfeb03be32e8ab" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_a6a280c05ac26ce5447898979ac55d4a.setContent(html_2d1d482ada29bbfab7dfeb03be32e8ab);
+            
+        
+
+        marker_f1e7cd2f44446a0e85533689da371332.bindPopup(popup_a6a280c05ac26ce5447898979ac55d4a)
+        ;
+
+        
+    
+    
+                marker_f1e7cd2f44446a0e85533689da371332.setIcon(icon_cce04a843e33013d3644f9fc8ec7e53a);
+            
+    
+            var marker_7fb98c9cdc3ab3abf9d3c0131bf9e861 = L.marker(
+                [28.969999, -13.82],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_83477d1819a7e2671c8c401669132d4c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bb4523cc919b7345ec48a69cfa944e49 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b694696fbba550c112b48f9d2390f5a7 = $(`<div id="html_b694696fbba550c112b48f9d2390f5a7" style="width: 100.0%; height: 100.0%;">Especie predicha: Crocidura canariensis</div>`)[0];
+                popup_bb4523cc919b7345ec48a69cfa944e49.setContent(html_b694696fbba550c112b48f9d2390f5a7);
+            
+        
+
+        marker_7fb98c9cdc3ab3abf9d3c0131bf9e861.bindPopup(popup_bb4523cc919b7345ec48a69cfa944e49)
+        ;
+
+        
+    
+    
+                marker_7fb98c9cdc3ab3abf9d3c0131bf9e861.setIcon(icon_83477d1819a7e2671c8c401669132d4c);
+            
+    
+            var marker_23b55fb1ed2a9169506a4e4a1f34536e = L.marker(
+                [28.42, -16.379999],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_a9455e521ffdbd2920bd8e4b2f81710d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f31195362b2d2b8e3f4da56b5ff83cf3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b33767c943b93b0533fcf725202994fa = $(`<div id="html_b33767c943b93b0533fcf725202994fa" style="width: 100.0%; height: 100.0%;">Especie predicha: Plecotus teneriffae</div>`)[0];
+                popup_f31195362b2d2b8e3f4da56b5ff83cf3.setContent(html_b33767c943b93b0533fcf725202994fa);
+            
+        
+
+        marker_23b55fb1ed2a9169506a4e4a1f34536e.bindPopup(popup_f31195362b2d2b8e3f4da56b5ff83cf3)
+        ;
+
+        
+    
+    
+                marker_23b55fb1ed2a9169506a4e4a1f34536e.setIcon(icon_a9455e521ffdbd2920bd8e4b2f81710d);
+            
+    
+            var marker_23aaa3564137967366da2950f00d1b20 = L.marker(
+                [28.550073, -16.230545],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_36a932473f52e4729e648995fe40ad49 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a889e8aa0c6cba9675d054e8b13eaff5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_461ccfe87970ca8b38201257a68af424 = $(`<div id="html_461ccfe87970ca8b38201257a68af424" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_a889e8aa0c6cba9675d054e8b13eaff5.setContent(html_461ccfe87970ca8b38201257a68af424);
+            
+        
+
+        marker_23aaa3564137967366da2950f00d1b20.bindPopup(popup_a889e8aa0c6cba9675d054e8b13eaff5)
+        ;
+
+        
+    
+    
+                marker_23aaa3564137967366da2950f00d1b20.setIcon(icon_36a932473f52e4729e648995fe40ad49);
+            
+    
+            var marker_bd2e1494cc6c8e67d39d893d2924fcd1 = L.marker(
+                [28.24, -16.780001],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_b403a82bebae8e42a3904b4f571a2607 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fee9efdc31d373882ba692ddf80c3538 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a1ecd6d6da29a72a1c07ad959646a794 = $(`<div id="html_a1ecd6d6da29a72a1c07ad959646a794" style="width: 100.0%; height: 100.0%;">Especie predicha: Plecotus teneriffae</div>`)[0];
+                popup_fee9efdc31d373882ba692ddf80c3538.setContent(html_a1ecd6d6da29a72a1c07ad959646a794);
+            
+        
+
+        marker_bd2e1494cc6c8e67d39d893d2924fcd1.bindPopup(popup_fee9efdc31d373882ba692ddf80c3538)
+        ;
+
+        
+    
+    
+                marker_bd2e1494cc6c8e67d39d893d2924fcd1.setIcon(icon_b403a82bebae8e42a3904b4f571a2607);
+            
+    
+            var marker_0ab8c56e3183dddea76c0ac986edcb92 = L.marker(
+                [27.96105, -15.589514],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_4975820d45cbe63977d897b46c793fb4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3e21aed747ac0a383a71be8a46af3cc3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4c27dce6ce9b6e56757f9506f7fafe34 = $(`<div id="html_4c27dce6ce9b6e56757f9506f7fafe34" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_3e21aed747ac0a383a71be8a46af3cc3.setContent(html_4c27dce6ce9b6e56757f9506f7fafe34);
+            
+        
+
+        marker_0ab8c56e3183dddea76c0ac986edcb92.bindPopup(popup_3e21aed747ac0a383a71be8a46af3cc3)
+        ;
+
+        
+    
+    
+                marker_0ab8c56e3183dddea76c0ac986edcb92.setIcon(icon_4975820d45cbe63977d897b46c793fb4);
+            
+    
+            var marker_d61a3ddbb50e8889d2620be3739a3811 = L.marker(
+                [28.376698, -16.626165],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_519710c61c5e9c0d3bf76be5d21d7264 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2114856d0057af535b77776da292d14f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_706b4b56b0629cbe022d6c3086af4098 = $(`<div id="html_706b4b56b0629cbe022d6c3086af4098" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_2114856d0057af535b77776da292d14f.setContent(html_706b4b56b0629cbe022d6c3086af4098);
+            
+        
+
+        marker_d61a3ddbb50e8889d2620be3739a3811.bindPopup(popup_2114856d0057af535b77776da292d14f)
+        ;
+
+        
+    
+    
+                marker_d61a3ddbb50e8889d2620be3739a3811.setIcon(icon_519710c61c5e9c0d3bf76be5d21d7264);
+            
+    
+            var marker_59af605ed963ca544ccaaf486b7bf410 = L.marker(
+                [28.791771, -17.801479],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_8350476f900aac05127f6deb75e80fe9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_776ae48f230a396473eca71da9f827cd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1b95b4b8ed129b891fa549d5be0470c1 = $(`<div id="html_1b95b4b8ed129b891fa549d5be0470c1" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_776ae48f230a396473eca71da9f827cd.setContent(html_1b95b4b8ed129b891fa549d5be0470c1);
+            
+        
+
+        marker_59af605ed963ca544ccaaf486b7bf410.bindPopup(popup_776ae48f230a396473eca71da9f827cd)
+        ;
+
+        
+    
+    
+                marker_59af605ed963ca544ccaaf486b7bf410.setIcon(icon_8350476f900aac05127f6deb75e80fe9);
+            
+    
+            var marker_5e30f3d3c57e91f95b52ba4c9944c0b0 = L.marker(
+                [28.327971, -16.809111],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_e916b0ce05017ff0af588faf084523a0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2ccfdf728f5254e009ce50eb3ba44deb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_288f8a6fb649219af5ca00c4eb8ae3c5 = $(`<div id="html_288f8a6fb649219af5ca00c4eb8ae3c5" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_2ccfdf728f5254e009ce50eb3ba44deb.setContent(html_288f8a6fb649219af5ca00c4eb8ae3c5);
+            
+        
+
+        marker_5e30f3d3c57e91f95b52ba4c9944c0b0.bindPopup(popup_2ccfdf728f5254e009ce50eb3ba44deb)
+        ;
+
+        
+    
+    
+                marker_5e30f3d3c57e91f95b52ba4c9944c0b0.setIcon(icon_e916b0ce05017ff0af588faf084523a0);
+            
+    
+            var marker_1fb179bb47c6e28cb86cf2c15e112415 = L.marker(
+                [27.850375, -15.60084],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_3d08d8b739b696fb2a9bfed43312a293 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_942844f4e5e886bb273871c967dee9cd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8b29cd414a4bc49ea802a2e336a601d4 = $(`<div id="html_8b29cd414a4bc49ea802a2e336a601d4" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_942844f4e5e886bb273871c967dee9cd.setContent(html_8b29cd414a4bc49ea802a2e336a601d4);
+            
+        
+
+        marker_1fb179bb47c6e28cb86cf2c15e112415.bindPopup(popup_942844f4e5e886bb273871c967dee9cd)
+        ;
+
+        
+    
+    
+                marker_1fb179bb47c6e28cb86cf2c15e112415.setIcon(icon_3d08d8b739b696fb2a9bfed43312a293);
+            
+    
+            var marker_d6fa1493511bfdb6f6f472866fd433a7 = L.marker(
+                [28.294386, -16.759296],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_d9712e79ae5f72404a4f033be878c6bf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_971e88d2f25ffca244ee1e129147b1b2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f51fdb801cb28e7927b5b189c2d0727a = $(`<div id="html_f51fdb801cb28e7927b5b189c2d0727a" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_971e88d2f25ffca244ee1e129147b1b2.setContent(html_f51fdb801cb28e7927b5b189c2d0727a);
+            
+        
+
+        marker_d6fa1493511bfdb6f6f472866fd433a7.bindPopup(popup_971e88d2f25ffca244ee1e129147b1b2)
+        ;
+
+        
+    
+    
+                marker_d6fa1493511bfdb6f6f472866fd433a7.setIcon(icon_d9712e79ae5f72404a4f033be878c6bf);
+            
+    
+            var marker_6f8cd4e7b73033125ac4cfdf537b1eb3 = L.marker(
+                [27.96105, -15.589514],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_d676348ebe399a8473d071daf2e06203 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fd10a40e0ab5b1dd0a183156dea468fb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b9f52ba38cc426f3b115d1d1095a599c = $(`<div id="html_b9f52ba38cc426f3b115d1d1095a599c" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_fd10a40e0ab5b1dd0a183156dea468fb.setContent(html_b9f52ba38cc426f3b115d1d1095a599c);
+            
+        
+
+        marker_6f8cd4e7b73033125ac4cfdf537b1eb3.bindPopup(popup_fd10a40e0ab5b1dd0a183156dea468fb)
+        ;
+
+        
+    
+    
+                marker_6f8cd4e7b73033125ac4cfdf537b1eb3.setIcon(icon_d676348ebe399a8473d071daf2e06203);
+            
+    
+            var marker_c3ae645b32c6a3fd0ade19aa6f810cc6 = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_191d5d873ed9751ac4a048267859ec4d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f6b102a06c021dd5c2f35e84447f8d47 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_037e6f09ed80f872e05155a5b58cd50f = $(`<div id="html_037e6f09ed80f872e05155a5b58cd50f" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_f6b102a06c021dd5c2f35e84447f8d47.setContent(html_037e6f09ed80f872e05155a5b58cd50f);
+            
+        
+
+        marker_c3ae645b32c6a3fd0ade19aa6f810cc6.bindPopup(popup_f6b102a06c021dd5c2f35e84447f8d47)
+        ;
+
+        
+    
+    
+                marker_c3ae645b32c6a3fd0ade19aa6f810cc6.setIcon(icon_191d5d873ed9751ac4a048267859ec4d);
+            
+    
+            var marker_750570716b60194b59999e2af6cb6bfb = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_07a37c6948ff4376fb86dc5dfe5c05fb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5aaf3f719dcc8b92537ed8aacddf0172 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bcb588358cec82bee76cc9a1f539a9ae = $(`<div id="html_bcb588358cec82bee76cc9a1f539a9ae" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_5aaf3f719dcc8b92537ed8aacddf0172.setContent(html_bcb588358cec82bee76cc9a1f539a9ae);
+            
+        
+
+        marker_750570716b60194b59999e2af6cb6bfb.bindPopup(popup_5aaf3f719dcc8b92537ed8aacddf0172)
+        ;
+
+        
+    
+    
+                marker_750570716b60194b59999e2af6cb6bfb.setIcon(icon_07a37c6948ff4376fb86dc5dfe5c05fb);
+            
+    
+            var marker_92b35f89149e0fec6bf08456845dbe2c = L.marker(
+                [28.33, -16.48],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_c6f599ba4eddcf74206dfef36f8d3f0e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aa483eac24783b0ba0e7df20d695c28e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2461bfd99c80bb01a88398feb6e84c2a = $(`<div id="html_2461bfd99c80bb01a88398feb6e84c2a" style="width: 100.0%; height: 100.0%;">Especie predicha: Plecotus teneriffae</div>`)[0];
+                popup_aa483eac24783b0ba0e7df20d695c28e.setContent(html_2461bfd99c80bb01a88398feb6e84c2a);
+            
+        
+
+        marker_92b35f89149e0fec6bf08456845dbe2c.bindPopup(popup_aa483eac24783b0ba0e7df20d695c28e)
+        ;
+
+        
+    
+    
+                marker_92b35f89149e0fec6bf08456845dbe2c.setIcon(icon_c6f599ba4eddcf74206dfef36f8d3f0e);
+            
+    
+            var marker_eae5ed64c449478efb81e80c4a375c9c = L.marker(
+                [27.96105, -15.589514],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_3294afb2b707f375efee1c8c6f04f828 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_76f5d9fde86d84eada6781e76755f01d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4c19bbaf287296f3bf986a1a2683f8e8 = $(`<div id="html_4c19bbaf287296f3bf986a1a2683f8e8" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_76f5d9fde86d84eada6781e76755f01d.setContent(html_4c19bbaf287296f3bf986a1a2683f8e8);
+            
+        
+
+        marker_eae5ed64c449478efb81e80c4a375c9c.bindPopup(popup_76f5d9fde86d84eada6781e76755f01d)
+        ;
+
+        
+    
+    
+                marker_eae5ed64c449478efb81e80c4a375c9c.setIcon(icon_3294afb2b707f375efee1c8c6f04f828);
+            
+    
+            var marker_07aff905d20cc1a03b634ab4b6e4a5b2 = L.marker(
+                [28.766947, -17.769758],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_351fea58e4bd5205fe63eeeaa3a4022e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_058b740a69ee2d5e5e29f2c8b5af505f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6b70cd9cfe9c886eace17235c9c22314 = $(`<div id="html_6b70cd9cfe9c886eace17235c9c22314" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_058b740a69ee2d5e5e29f2c8b5af505f.setContent(html_6b70cd9cfe9c886eace17235c9c22314);
+            
+        
+
+        marker_07aff905d20cc1a03b634ab4b6e4a5b2.bindPopup(popup_058b740a69ee2d5e5e29f2c8b5af505f)
+        ;
+
+        
+    
+    
+                marker_07aff905d20cc1a03b634ab4b6e4a5b2.setIcon(icon_351fea58e4bd5205fe63eeeaa3a4022e);
+            
+    
+            var marker_7f6ab97ec44544402856e348c31e8dd1 = L.marker(
+                [28.52, -13.93],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_4897232637c380cbb4c513bc08e98f8b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cff5c19494d7f759cc97db5512d91028 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6101f012929b804b9c4446663cd5e133 = $(`<div id="html_6101f012929b804b9c4446663cd5e133" style="width: 100.0%; height: 100.0%;">Especie predicha: Crocidura canariensis</div>`)[0];
+                popup_cff5c19494d7f759cc97db5512d91028.setContent(html_6101f012929b804b9c4446663cd5e133);
+            
+        
+
+        marker_7f6ab97ec44544402856e348c31e8dd1.bindPopup(popup_cff5c19494d7f759cc97db5512d91028)
+        ;
+
+        
+    
+    
+                marker_7f6ab97ec44544402856e348c31e8dd1.setIcon(icon_4897232637c380cbb4c513bc08e98f8b);
+            
+    
+            var marker_8a3cc49d77f5bda526099af58577391f = L.marker(
+                [28.192551, -16.784555],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_9a8eae5c348e4f057a4b9304d606ea2e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4f9fd0ee746f5d845d48028b4c47867c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ac64822538c8dab39ced6f945801393d = $(`<div id="html_ac64822538c8dab39ced6f945801393d" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_4f9fd0ee746f5d845d48028b4c47867c.setContent(html_ac64822538c8dab39ced6f945801393d);
+            
+        
+
+        marker_8a3cc49d77f5bda526099af58577391f.bindPopup(popup_4f9fd0ee746f5d845d48028b4c47867c)
+        ;
+
+        
+    
+    
+                marker_8a3cc49d77f5bda526099af58577391f.setIcon(icon_9a8eae5c348e4f057a4b9304d606ea2e);
+            
+    
+            var marker_82cd31f3fad1f9fbb873263b1eee7cd5 = L.marker(
+                [28.13213, -16.755672],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_2cd0d560ca52e369964f2c32f89f89f8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e6886f1bcbda04a04246f63169321240 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d4ab2689c471106578c080da6ca43b05 = $(`<div id="html_d4ab2689c471106578c080da6ca43b05" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_e6886f1bcbda04a04246f63169321240.setContent(html_d4ab2689c471106578c080da6ca43b05);
+            
+        
+
+        marker_82cd31f3fad1f9fbb873263b1eee7cd5.bindPopup(popup_e6886f1bcbda04a04246f63169321240)
+        ;
+
+        
+    
+    
+                marker_82cd31f3fad1f9fbb873263b1eee7cd5.setIcon(icon_2cd0d560ca52e369964f2c32f89f89f8);
+            
+    
+            var marker_df57cb934b2ea25c5463cc3690af6b19 = L.marker(
+                [28.141661, -17.23776],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_7aaa69ccfeb664225de7c16370a18544 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_340e9b300faa5f4a52839570dfcc4e4f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3cc0fe6b00eefdd3dc9135ea1ac2afaa = $(`<div id="html_3cc0fe6b00eefdd3dc9135ea1ac2afaa" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_340e9b300faa5f4a52839570dfcc4e4f.setContent(html_3cc0fe6b00eefdd3dc9135ea1ac2afaa);
+            
+        
+
+        marker_df57cb934b2ea25c5463cc3690af6b19.bindPopup(popup_340e9b300faa5f4a52839570dfcc4e4f)
+        ;
+
+        
+    
+    
+                marker_df57cb934b2ea25c5463cc3690af6b19.setIcon(icon_7aaa69ccfeb664225de7c16370a18544);
+            
+    
+            var marker_21b5cde24dbd8d5f8e8cb33b0125d8f0 = L.marker(
+                [28.328039, -16.806198],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_362fb3dea51673da165b7cfbd39f8348 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ad2e75c1ffcb7e8b8ff9bb207d126a9d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_be45c1e07b3f78e3c460eada749bd6d5 = $(`<div id="html_be45c1e07b3f78e3c460eada749bd6d5" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_ad2e75c1ffcb7e8b8ff9bb207d126a9d.setContent(html_be45c1e07b3f78e3c460eada749bd6d5);
+            
+        
+
+        marker_21b5cde24dbd8d5f8e8cb33b0125d8f0.bindPopup(popup_ad2e75c1ffcb7e8b8ff9bb207d126a9d)
+        ;
+
+        
+    
+    
+                marker_21b5cde24dbd8d5f8e8cb33b0125d8f0.setIcon(icon_362fb3dea51673da165b7cfbd39f8348);
+            
+    
+            var marker_6bb0b52992b69a8633e91344f81ecb61 = L.marker(
+                [28.410708, -16.548249],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_e5a614654070a100a2c80e8696404a72 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7275970dd281273fad809b81fcf24bb8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fc15a376c34ce93377d76c9240ba71ed = $(`<div id="html_fc15a376c34ce93377d76c9240ba71ed" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_7275970dd281273fad809b81fcf24bb8.setContent(html_fc15a376c34ce93377d76c9240ba71ed);
+            
+        
+
+        marker_6bb0b52992b69a8633e91344f81ecb61.bindPopup(popup_7275970dd281273fad809b81fcf24bb8)
+        ;
+
+        
+    
+    
+                marker_6bb0b52992b69a8633e91344f81ecb61.setIcon(icon_e5a614654070a100a2c80e8696404a72);
+            
+    
+            var marker_8f74bf93ebaaef2f0c9f9b9d99868d16 = L.marker(
+                [27.96105, -15.589514],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_13e1e0e93af68a787c83be95b4aae303 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e6b2a8f4104bd37ddc76c79dd2a9e47f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_58649beac9d97e3a6421cb1a7adc3ddd = $(`<div id="html_58649beac9d97e3a6421cb1a7adc3ddd" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_e6b2a8f4104bd37ddc76c79dd2a9e47f.setContent(html_58649beac9d97e3a6421cb1a7adc3ddd);
+            
+        
+
+        marker_8f74bf93ebaaef2f0c9f9b9d99868d16.bindPopup(popup_e6b2a8f4104bd37ddc76c79dd2a9e47f)
+        ;
+
+        
+    
+    
+                marker_8f74bf93ebaaef2f0c9f9b9d99868d16.setIcon(icon_13e1e0e93af68a787c83be95b4aae303);
+            
+    
+            var marker_467fcaaab133a4084f775bbd50478a43 = L.marker(
+                [28.190191, -16.665777],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_169da4b8cd55e1d395e233edf5eed4ad = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6f75875b86e7fb0df2caef2a6d354c74 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bbf768694d92a2aa5b73f3a585c7eb3a = $(`<div id="html_bbf768694d92a2aa5b73f3a585c7eb3a" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_6f75875b86e7fb0df2caef2a6d354c74.setContent(html_bbf768694d92a2aa5b73f3a585c7eb3a);
+            
+        
+
+        marker_467fcaaab133a4084f775bbd50478a43.bindPopup(popup_6f75875b86e7fb0df2caef2a6d354c74)
+        ;
+
+        
+    
+    
+                marker_467fcaaab133a4084f775bbd50478a43.setIcon(icon_169da4b8cd55e1d395e233edf5eed4ad);
+            
+    
+            var marker_e47bb94e4fcd9b3ab4f78fbfe8dfa52d = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_d433bee01059af7cc332771b5551ce4b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_95c9b179cc1e41357ddc2f720f73c0ee = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_725614ed0e7c5bd166c229fba1757f40 = $(`<div id="html_725614ed0e7c5bd166c229fba1757f40" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_95c9b179cc1e41357ddc2f720f73c0ee.setContent(html_725614ed0e7c5bd166c229fba1757f40);
+            
+        
+
+        marker_e47bb94e4fcd9b3ab4f78fbfe8dfa52d.bindPopup(popup_95c9b179cc1e41357ddc2f720f73c0ee)
+        ;
+
+        
+    
+    
+                marker_e47bb94e4fcd9b3ab4f78fbfe8dfa52d.setIcon(icon_d433bee01059af7cc332771b5551ce4b);
+            
+    
+            var marker_f9732c742aad635c0490b9edf90d69a6 = L.marker(
+                [27.954443, -15.648081],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_5b34ad35752b43a7e4167c9b6e72e78e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_591a5902d039ff1f3e204245663e11b3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_82638616e1b9ead8bb02e92afedced17 = $(`<div id="html_82638616e1b9ead8bb02e92afedced17" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_591a5902d039ff1f3e204245663e11b3.setContent(html_82638616e1b9ead8bb02e92afedced17);
+            
+        
+
+        marker_f9732c742aad635c0490b9edf90d69a6.bindPopup(popup_591a5902d039ff1f3e204245663e11b3)
+        ;
+
+        
+    
+    
+                marker_f9732c742aad635c0490b9edf90d69a6.setIcon(icon_5b34ad35752b43a7e4167c9b6e72e78e);
+            
+    
+            var marker_bb4ce1a2d614f0966ad74355723f89c4 = L.marker(
+                [28.53137, -16.28031],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_2302ee5507016c7956008eaded8a1ca3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_589c4f19bcdd781c0b1fef87a944fc6c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fca4e290863312c12d681078dff134f6 = $(`<div id="html_fca4e290863312c12d681078dff134f6" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_589c4f19bcdd781c0b1fef87a944fc6c.setContent(html_fca4e290863312c12d681078dff134f6);
+            
+        
+
+        marker_bb4ce1a2d614f0966ad74355723f89c4.bindPopup(popup_589c4f19bcdd781c0b1fef87a944fc6c)
+        ;
+
+        
+    
+    
+                marker_bb4ce1a2d614f0966ad74355723f89c4.setIcon(icon_2302ee5507016c7956008eaded8a1ca3);
+            
+    
+            var marker_f50316490fa38f701134bff7142eeb7b = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_73299ca8079a17c7507d49155b4d3d23 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2f06c890cef384d18f88928890e4f803 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_95216f9855e2c14558be44d8e51d36de = $(`<div id="html_95216f9855e2c14558be44d8e51d36de" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_2f06c890cef384d18f88928890e4f803.setContent(html_95216f9855e2c14558be44d8e51d36de);
+            
+        
+
+        marker_f50316490fa38f701134bff7142eeb7b.bindPopup(popup_2f06c890cef384d18f88928890e4f803)
+        ;
+
+        
+    
+    
+                marker_f50316490fa38f701134bff7142eeb7b.setIcon(icon_73299ca8079a17c7507d49155b4d3d23);
+            
+    
+            var marker_f37ba5aab6b9eea98cd4829ff305e2c0 = L.marker(
+                [28.259363, -16.770092],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_313a9fcce650f024405eb2d7b50fc959 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d65609dfa6207dc53cf780d46f62b7c6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_51044542ed1cf932ba19892e5bcfbef0 = $(`<div id="html_51044542ed1cf932ba19892e5bcfbef0" style="width: 100.0%; height: 100.0%;">Especie predicha: Plecotus teneriffae</div>`)[0];
+                popup_d65609dfa6207dc53cf780d46f62b7c6.setContent(html_51044542ed1cf932ba19892e5bcfbef0);
+            
+        
+
+        marker_f37ba5aab6b9eea98cd4829ff305e2c0.bindPopup(popup_d65609dfa6207dc53cf780d46f62b7c6)
+        ;
+
+        
+    
+    
+                marker_f37ba5aab6b9eea98cd4829ff305e2c0.setIcon(icon_313a9fcce650f024405eb2d7b50fc959);
+            
+    
+            var marker_c66a6d6d1b10144a227fbed38701e3b6 = L.marker(
+                [28.391244, -16.626667],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_2497757b0bfbf665d0b7c2728e8f9899 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_24995d01fb5862a45d7347f34f049e4a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4ceb25ebdbd19e3b6a81d84d1540f50b = $(`<div id="html_4ceb25ebdbd19e3b6a81d84d1540f50b" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_24995d01fb5862a45d7347f34f049e4a.setContent(html_4ceb25ebdbd19e3b6a81d84d1540f50b);
+            
+        
+
+        marker_c66a6d6d1b10144a227fbed38701e3b6.bindPopup(popup_24995d01fb5862a45d7347f34f049e4a)
+        ;
+
+        
+    
+    
+                marker_c66a6d6d1b10144a227fbed38701e3b6.setIcon(icon_2497757b0bfbf665d0b7c2728e8f9899);
+            
+    
+            var marker_2e911964cb339f340bfac80727cfa54f = L.marker(
+                [28.329391, -16.810015],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_b659673b6c5c23dfcab88974b218acac = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_61af39c778d27bd9421b60f9bfe55f43 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a198c1eb38c26b4995f0934ceca72422 = $(`<div id="html_a198c1eb38c26b4995f0934ceca72422" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_61af39c778d27bd9421b60f9bfe55f43.setContent(html_a198c1eb38c26b4995f0934ceca72422);
+            
+        
+
+        marker_2e911964cb339f340bfac80727cfa54f.bindPopup(popup_61af39c778d27bd9421b60f9bfe55f43)
+        ;
+
+        
+    
+    
+                marker_2e911964cb339f340bfac80727cfa54f.setIcon(icon_b659673b6c5c23dfcab88974b218acac);
+            
+    
+            var marker_4f36ed561ad95d150cb6bf3a9bb7d018 = L.marker(
+                [28.371984, -16.529609],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_bc88ae02f2d954ac3e22939944cf2786 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cb8f1d039ba173cfc3b74f89568fc4fc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_19358c184af9adf06c9da58e1686a65a = $(`<div id="html_19358c184af9adf06c9da58e1686a65a" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_cb8f1d039ba173cfc3b74f89568fc4fc.setContent(html_19358c184af9adf06c9da58e1686a65a);
+            
+        
+
+        marker_4f36ed561ad95d150cb6bf3a9bb7d018.bindPopup(popup_cb8f1d039ba173cfc3b74f89568fc4fc)
+        ;
+
+        
+    
+    
+                marker_4f36ed561ad95d150cb6bf3a9bb7d018.setIcon(icon_bc88ae02f2d954ac3e22939944cf2786);
+            
+    
+            var marker_db7d94bfd424f131b2f5856c25120567 = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_3258938d99cf9d1f2dca6147755bd81b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b922ff10bdefc3d19167450a39276ab4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e1cc1a173dda854bb88f1beedfae1c66 = $(`<div id="html_e1cc1a173dda854bb88f1beedfae1c66" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_b922ff10bdefc3d19167450a39276ab4.setContent(html_e1cc1a173dda854bb88f1beedfae1c66);
+            
+        
+
+        marker_db7d94bfd424f131b2f5856c25120567.bindPopup(popup_b922ff10bdefc3d19167450a39276ab4)
+        ;
+
+        
+    
+    
+                marker_db7d94bfd424f131b2f5856c25120567.setIcon(icon_3258938d99cf9d1f2dca6147755bd81b);
+            
+    
+            var marker_5955b953eb031afa0f768e2f60011f54 = L.marker(
+                [28.390834, -16.626749],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_a28c69e9178681e3ba0d4eebfd7ed38b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1d9f84c7b1f83e6fb63fb20702f51aa4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3581570aaeefb5e747705843eff757ce = $(`<div id="html_3581570aaeefb5e747705843eff757ce" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_1d9f84c7b1f83e6fb63fb20702f51aa4.setContent(html_3581570aaeefb5e747705843eff757ce);
+            
+        
+
+        marker_5955b953eb031afa0f768e2f60011f54.bindPopup(popup_1d9f84c7b1f83e6fb63fb20702f51aa4)
+        ;
+
+        
+    
+    
+                marker_5955b953eb031afa0f768e2f60011f54.setIcon(icon_a28c69e9178681e3ba0d4eebfd7ed38b);
+            
+    
+            var marker_26c89072acf67a1a82b28bb6ea42ba6a = L.marker(
+                [28.329363, -16.810053],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_cb00441ae25dc7db352dda300cc7258f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2a806e83b101170790ced551b3c4217b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a9b8a9960f521dfb708c1951a4c4d9ed = $(`<div id="html_a9b8a9960f521dfb708c1951a4c4d9ed" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_2a806e83b101170790ced551b3c4217b.setContent(html_a9b8a9960f521dfb708c1951a4c4d9ed);
+            
+        
+
+        marker_26c89072acf67a1a82b28bb6ea42ba6a.bindPopup(popup_2a806e83b101170790ced551b3c4217b)
+        ;
+
+        
+    
+    
+                marker_26c89072acf67a1a82b28bb6ea42ba6a.setIcon(icon_cb00441ae25dc7db352dda300cc7258f);
+            
+    
+            var marker_bb8bf67349101beeded25b049c03392b = L.marker(
+                [28.360512, -16.780067],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_2a7b9eed4cbea9059e4b25d2cac78dd7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8bab1bfbf82b2f3a42f670ca7c2be8fc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_72791c1a8c5136bfee6500c0199bfbe8 = $(`<div id="html_72791c1a8c5136bfee6500c0199bfbe8" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_8bab1bfbf82b2f3a42f670ca7c2be8fc.setContent(html_72791c1a8c5136bfee6500c0199bfbe8);
+            
+        
+
+        marker_bb8bf67349101beeded25b049c03392b.bindPopup(popup_8bab1bfbf82b2f3a42f670ca7c2be8fc)
+        ;
+
+        
+    
+    
+                marker_bb8bf67349101beeded25b049c03392b.setIcon(icon_2a7b9eed4cbea9059e4b25d2cac78dd7);
+            
+    
+            var marker_79c714aba3e4f163b46cccf3ef0accd8 = L.marker(
+                [28.299212, -16.372669],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_20980fa83c5bf951da305a09ea8c5936 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1cadfbbc3614e4d56f9ac2f41878e817 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_060334c59be06dc2ac4817b6da44b422 = $(`<div id="html_060334c59be06dc2ac4817b6da44b422" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_1cadfbbc3614e4d56f9ac2f41878e817.setContent(html_060334c59be06dc2ac4817b6da44b422);
+            
+        
+
+        marker_79c714aba3e4f163b46cccf3ef0accd8.bindPopup(popup_1cadfbbc3614e4d56f9ac2f41878e817)
+        ;
+
+        
+    
+    
+                marker_79c714aba3e4f163b46cccf3ef0accd8.setIcon(icon_20980fa83c5bf951da305a09ea8c5936);
+            
+    
+            var marker_28940f24d275e4b03185f51bff0446a9 = L.marker(
+                [28.226366, -16.410605],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_1f075f95094df3ab336422da93fb33f9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_47708f1c17a54ce72235248587cf047b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c1fd1f3a83fa7817dab7d6e4aa0ae07 = $(`<div id="html_8c1fd1f3a83fa7817dab7d6e4aa0ae07" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_47708f1c17a54ce72235248587cf047b.setContent(html_8c1fd1f3a83fa7817dab7d6e4aa0ae07);
+            
+        
+
+        marker_28940f24d275e4b03185f51bff0446a9.bindPopup(popup_47708f1c17a54ce72235248587cf047b)
+        ;
+
+        
+    
+    
+                marker_28940f24d275e4b03185f51bff0446a9.setIcon(icon_1f075f95094df3ab336422da93fb33f9);
+            
+    
+            var marker_5943f962bf6ce45b2aaee3aafb5d1dea = L.marker(
+                [28.416442, -16.531801],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_717de56d3faa3ea678c3f8ac227c4646 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_118f2b9c2dab6ab8630a61341e526202 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dd1045de1f7cf2011e0dcda622fec7ba = $(`<div id="html_dd1045de1f7cf2011e0dcda622fec7ba" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_118f2b9c2dab6ab8630a61341e526202.setContent(html_dd1045de1f7cf2011e0dcda622fec7ba);
+            
+        
+
+        marker_5943f962bf6ce45b2aaee3aafb5d1dea.bindPopup(popup_118f2b9c2dab6ab8630a61341e526202)
+        ;
+
+        
+    
+    
+                marker_5943f962bf6ce45b2aaee3aafb5d1dea.setIcon(icon_717de56d3faa3ea678c3f8ac227c4646);
+            
+    
+            var marker_5567c318b9dca3878a8baa2592cb5629 = L.marker(
+                [28.329557, -16.532602],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_f3221ca8ec033e5a0c17cc7245d4f4aa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_40b89a85812f95b2272e217cc51232e1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9b4a9baab8648c5aaa2770d4a25fd7b5 = $(`<div id="html_9b4a9baab8648c5aaa2770d4a25fd7b5" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_40b89a85812f95b2272e217cc51232e1.setContent(html_9b4a9baab8648c5aaa2770d4a25fd7b5);
+            
+        
+
+        marker_5567c318b9dca3878a8baa2592cb5629.bindPopup(popup_40b89a85812f95b2272e217cc51232e1)
+        ;
+
+        
+    
+    
+                marker_5567c318b9dca3878a8baa2592cb5629.setIcon(icon_f3221ca8ec033e5a0c17cc7245d4f4aa);
+            
+    
+            var marker_33ef70efb96c9a56fd2c5ba41f1d7112 = L.marker(
+                [28.142764, -16.682412],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_4379901d216afd3270e01d50bd8a1430 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_63f003214866e7609f0dbbfb12bb35a5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b88153aab3aa4a21b58a68e6c66f41c0 = $(`<div id="html_b88153aab3aa4a21b58a68e6c66f41c0" style="width: 100.0%; height: 100.0%;">Especie predicha: Plecotus teneriffae</div>`)[0];
+                popup_63f003214866e7609f0dbbfb12bb35a5.setContent(html_b88153aab3aa4a21b58a68e6c66f41c0);
+            
+        
+
+        marker_33ef70efb96c9a56fd2c5ba41f1d7112.bindPopup(popup_63f003214866e7609f0dbbfb12bb35a5)
+        ;
+
+        
+    
+    
+                marker_33ef70efb96c9a56fd2c5ba41f1d7112.setIcon(icon_4379901d216afd3270e01d50bd8a1430);
+            
+    
+            var marker_a035a1d66af8282101ef733a80f450c2 = L.marker(
+                [28.227338, -16.637925],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_0217e53cf44b02975da71c38b8f152b1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_135a5dbbbcef99b45c2b37cfa13f3177 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_da39cf655a18528c5c47e437f0bb12bf = $(`<div id="html_da39cf655a18528c5c47e437f0bb12bf" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_135a5dbbbcef99b45c2b37cfa13f3177.setContent(html_da39cf655a18528c5c47e437f0bb12bf);
+            
+        
+
+        marker_a035a1d66af8282101ef733a80f450c2.bindPopup(popup_135a5dbbbcef99b45c2b37cfa13f3177)
+        ;
+
+        
+    
+    
+                marker_a035a1d66af8282101ef733a80f450c2.setIcon(icon_0217e53cf44b02975da71c38b8f152b1);
+            
+    
+            var marker_1e4b6ab30669c527183d1946d3c2dc4c = L.marker(
+                [28.369415, -16.421795],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_c7a11a33a91f541936f90d439a748e5a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aab73b9300279286bd1107be14cb1c0f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9e9f55d78a139d8927e49b74469b37c8 = $(`<div id="html_9e9f55d78a139d8927e49b74469b37c8" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_aab73b9300279286bd1107be14cb1c0f.setContent(html_9e9f55d78a139d8927e49b74469b37c8);
+            
+        
+
+        marker_1e4b6ab30669c527183d1946d3c2dc4c.bindPopup(popup_aab73b9300279286bd1107be14cb1c0f)
+        ;
+
+        
+    
+    
+                marker_1e4b6ab30669c527183d1946d3c2dc4c.setIcon(icon_c7a11a33a91f541936f90d439a748e5a);
+            
+    
+            var marker_2d9a41509f5126b20d03d9efcc6cf0e9 = L.marker(
+                [28.718479, -17.928218],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_65d454ebca5c60e419993df73c1778fd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ee09e9984ac7d9a650c4acc170bc0ba7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bb5526083025ed86a5263564b4f38f49 = $(`<div id="html_bb5526083025ed86a5263564b4f38f49" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_ee09e9984ac7d9a650c4acc170bc0ba7.setContent(html_bb5526083025ed86a5263564b4f38f49);
+            
+        
+
+        marker_2d9a41509f5126b20d03d9efcc6cf0e9.bindPopup(popup_ee09e9984ac7d9a650c4acc170bc0ba7)
+        ;
+
+        
+    
+    
+                marker_2d9a41509f5126b20d03d9efcc6cf0e9.setIcon(icon_65d454ebca5c60e419993df73c1778fd);
+            
+    
+            var marker_3fa851fd344fddc1ecbc35e379f0bce9 = L.marker(
+                [28.227378, -16.637971],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_acb8c98eeea391bf6c3af41a521fba5e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2b02d779ca8c4c31453084e7a03f8859 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_be629c598e3d01da227f4cf340ae2ecd = $(`<div id="html_be629c598e3d01da227f4cf340ae2ecd" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_2b02d779ca8c4c31453084e7a03f8859.setContent(html_be629c598e3d01da227f4cf340ae2ecd);
+            
+        
+
+        marker_3fa851fd344fddc1ecbc35e379f0bce9.bindPopup(popup_2b02d779ca8c4c31453084e7a03f8859)
+        ;
+
+        
+    
+    
+                marker_3fa851fd344fddc1ecbc35e379f0bce9.setIcon(icon_acb8c98eeea391bf6c3af41a521fba5e);
+            
+    
+            var marker_c59033070795580c7c4553795ab7ef3f = L.marker(
+                [28.725085, -17.941387],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_1a774ae6d5b27e06a6af1cb3107cb115 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6b33d88f9c611e86e1ee5f2ede5b854d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_66bcae90880ee1f90df5667a98a7ad2b = $(`<div id="html_66bcae90880ee1f90df5667a98a7ad2b" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_6b33d88f9c611e86e1ee5f2ede5b854d.setContent(html_66bcae90880ee1f90df5667a98a7ad2b);
+            
+        
+
+        marker_c59033070795580c7c4553795ab7ef3f.bindPopup(popup_6b33d88f9c611e86e1ee5f2ede5b854d)
+        ;
+
+        
+    
+    
+                marker_c59033070795580c7c4553795ab7ef3f.setIcon(icon_1a774ae6d5b27e06a6af1cb3107cb115);
+            
+    
+            var marker_f1609ef7bb77efe1d7e989c759ec5773 = L.marker(
+                [28.417056, -16.522627],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_ed03e55c64524b336b37dd7c5a7d1785 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a93294448cbb6a7acaaea6517f84157b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fa45f74ea358d2caf2c28272e474f24e = $(`<div id="html_fa45f74ea358d2caf2c28272e474f24e" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_a93294448cbb6a7acaaea6517f84157b.setContent(html_fa45f74ea358d2caf2c28272e474f24e);
+            
+        
+
+        marker_f1609ef7bb77efe1d7e989c759ec5773.bindPopup(popup_a93294448cbb6a7acaaea6517f84157b)
+        ;
+
+        
+    
+    
+                marker_f1609ef7bb77efe1d7e989c759ec5773.setIcon(icon_ed03e55c64524b336b37dd7c5a7d1785);
+            
+    
+            var marker_16d0b811be19d76d085ea1b72a244514 = L.marker(
+                [27.96105, -15.589514],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_faf076af81855ca32a48b624b5767ee7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_989f7a07c54f84541d871affbd9937d3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ee66707f7d25eb5004d80dde44781abf = $(`<div id="html_ee66707f7d25eb5004d80dde44781abf" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_989f7a07c54f84541d871affbd9937d3.setContent(html_ee66707f7d25eb5004d80dde44781abf);
+            
+        
+
+        marker_16d0b811be19d76d085ea1b72a244514.bindPopup(popup_989f7a07c54f84541d871affbd9937d3)
+        ;
+
+        
+    
+    
+                marker_16d0b811be19d76d085ea1b72a244514.setIcon(icon_faf076af81855ca32a48b624b5767ee7);
+            
+    
+            var marker_34898de609d915a779b7151d93c0a43b = L.marker(
+                [28.126692, -17.257391],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_2adafd16cda0439969d3a3e5ffa47767 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_145b7b0b3ea3c007bd660fdb1d40cca9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1e01f92b19f49cd590e14de44ab4ec75 = $(`<div id="html_1e01f92b19f49cd590e14de44ab4ec75" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_145b7b0b3ea3c007bd660fdb1d40cca9.setContent(html_1e01f92b19f49cd590e14de44ab4ec75);
+            
+        
+
+        marker_34898de609d915a779b7151d93c0a43b.bindPopup(popup_145b7b0b3ea3c007bd660fdb1d40cca9)
+        ;
+
+        
+    
+    
+                marker_34898de609d915a779b7151d93c0a43b.setIcon(icon_2adafd16cda0439969d3a3e5ffa47767);
+            
+    
+            var marker_e847df9da9d08d4cc84f9a37fa2cde22 = L.marker(
+                [28.792923, -17.795484],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_f938cec6748c40bc97edf8a2d22bf205 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a213f79a1e3a1e768252f87d332dc830 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_64f38158753896d57bbfbd86bbfb3a76 = $(`<div id="html_64f38158753896d57bbfbd86bbfb3a76" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_a213f79a1e3a1e768252f87d332dc830.setContent(html_64f38158753896d57bbfbd86bbfb3a76);
+            
+        
+
+        marker_e847df9da9d08d4cc84f9a37fa2cde22.bindPopup(popup_a213f79a1e3a1e768252f87d332dc830)
+        ;
+
+        
+    
+    
+                marker_e847df9da9d08d4cc84f9a37fa2cde22.setIcon(icon_f938cec6748c40bc97edf8a2d22bf205);
+            
+    
+            var marker_07cd1aea186499b8a2727d8e4b47096b = L.marker(
+                [28.295464, -16.565796],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_97a0117aa0131b8c788d58713503da9f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2d6323720e180fb89615dac044d7c395 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1fa98f2d4ab6acbc5d4e83f8841b7f1e = $(`<div id="html_1fa98f2d4ab6acbc5d4e83f8841b7f1e" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_2d6323720e180fb89615dac044d7c395.setContent(html_1fa98f2d4ab6acbc5d4e83f8841b7f1e);
+            
+        
+
+        marker_07cd1aea186499b8a2727d8e4b47096b.bindPopup(popup_2d6323720e180fb89615dac044d7c395)
+        ;
+
+        
+    
+    
+                marker_07cd1aea186499b8a2727d8e4b47096b.setIcon(icon_97a0117aa0131b8c788d58713503da9f);
+            
+    
+            var marker_761f9851e2d81e8e3dc616ace17db868 = L.marker(
+                [28.766911, -17.769926],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_a27a88ba863a156a6154355afbb504a2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_59f59237b804e6f8d2d690596801e7e0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fe918013e67d968a446e6f10be6cfd39 = $(`<div id="html_fe918013e67d968a446e6f10be6cfd39" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_59f59237b804e6f8d2d690596801e7e0.setContent(html_fe918013e67d968a446e6f10be6cfd39);
+            
+        
+
+        marker_761f9851e2d81e8e3dc616ace17db868.bindPopup(popup_59f59237b804e6f8d2d690596801e7e0)
+        ;
+
+        
+    
+    
+                marker_761f9851e2d81e8e3dc616ace17db868.setIcon(icon_a27a88ba863a156a6154355afbb504a2);
+            
+    
+            var marker_d4cf91adf2cf338ae6af6caf426525cf = L.marker(
+                [28.523972, -16.291825],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_ebed9fc60916cf35e9881aea798eab6e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9556e7518db6c5b973d155b0424521fe = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_876f2ead6fc002adc098345816a212c7 = $(`<div id="html_876f2ead6fc002adc098345816a212c7" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_9556e7518db6c5b973d155b0424521fe.setContent(html_876f2ead6fc002adc098345816a212c7);
+            
+        
+
+        marker_d4cf91adf2cf338ae6af6caf426525cf.bindPopup(popup_9556e7518db6c5b973d155b0424521fe)
+        ;
+
+        
+    
+    
+                marker_d4cf91adf2cf338ae6af6caf426525cf.setIcon(icon_ebed9fc60916cf35e9881aea798eab6e);
+            
+    
+            var marker_69689fbf8e96e4ac6fdb460b40f96fd9 = L.marker(
+                [28.419706, -16.37705],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_ccebf1b45a0fc0eb1a4603cd1efb374b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e6fb4d7ecb4871fda0ed47bcce6d1a6a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4420022d2297ce15055ed7f667abae4b = $(`<div id="html_4420022d2297ce15055ed7f667abae4b" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_e6fb4d7ecb4871fda0ed47bcce6d1a6a.setContent(html_4420022d2297ce15055ed7f667abae4b);
+            
+        
+
+        marker_69689fbf8e96e4ac6fdb460b40f96fd9.bindPopup(popup_e6fb4d7ecb4871fda0ed47bcce6d1a6a)
+        ;
+
+        
+    
+    
+                marker_69689fbf8e96e4ac6fdb460b40f96fd9.setIcon(icon_ccebf1b45a0fc0eb1a4603cd1efb374b);
+            
+    
+            var marker_7d7eba8e87d534d85fa8b2d704634141 = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_3b348bda1a963267b905aeeeca5e3283 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_21d9f94b9c7dc996c7efdb0a55affc6f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6570dee851d12ceabc12718f7e195de0 = $(`<div id="html_6570dee851d12ceabc12718f7e195de0" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_21d9f94b9c7dc996c7efdb0a55affc6f.setContent(html_6570dee851d12ceabc12718f7e195de0);
+            
+        
+
+        marker_7d7eba8e87d534d85fa8b2d704634141.bindPopup(popup_21d9f94b9c7dc996c7efdb0a55affc6f)
+        ;
+
+        
+    
+    
+                marker_7d7eba8e87d534d85fa8b2d704634141.setIcon(icon_3b348bda1a963267b905aeeeca5e3283);
+            
+    
+            var marker_700857a219d07fc02d254c0a4632b158 = L.marker(
+                [28.152029, -16.626623],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_f91204fd034d0e537c9906b26f8f4c87 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_210eadef775d0c3fb39c4593dad64692 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_50ba6bd9cc81ce316572ae4bc6cd1270 = $(`<div id="html_50ba6bd9cc81ce316572ae4bc6cd1270" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_210eadef775d0c3fb39c4593dad64692.setContent(html_50ba6bd9cc81ce316572ae4bc6cd1270);
+            
+        
+
+        marker_700857a219d07fc02d254c0a4632b158.bindPopup(popup_210eadef775d0c3fb39c4593dad64692)
+        ;
+
+        
+    
+    
+                marker_700857a219d07fc02d254c0a4632b158.setIcon(icon_f91204fd034d0e537c9906b26f8f4c87);
+            
+    
+            var marker_fa134252b79770f656cdc595eee40127 = L.marker(
+                [28.232594, -16.694789],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_58132cd16d56a4cefd41b12a9ccc7611 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a68a40dd1ec16d5f07e47f5c6e7538da = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cdacb380711a92f71516da1ebdfacf72 = $(`<div id="html_cdacb380711a92f71516da1ebdfacf72" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_a68a40dd1ec16d5f07e47f5c6e7538da.setContent(html_cdacb380711a92f71516da1ebdfacf72);
+            
+        
+
+        marker_fa134252b79770f656cdc595eee40127.bindPopup(popup_a68a40dd1ec16d5f07e47f5c6e7538da)
+        ;
+
+        
+    
+    
+                marker_fa134252b79770f656cdc595eee40127.setIcon(icon_58132cd16d56a4cefd41b12a9ccc7611);
+            
+    
+            var marker_5527a4097581729a2d86b7603baa3910 = L.marker(
+                [28.562398, -16.290795],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_dce2af5ef80b058591656d09c5b3ad81 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9a82901a4518e1060a7561217655f48d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_41a02df907e259165922a1a43f1db6a3 = $(`<div id="html_41a02df907e259165922a1a43f1db6a3" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_9a82901a4518e1060a7561217655f48d.setContent(html_41a02df907e259165922a1a43f1db6a3);
+            
+        
+
+        marker_5527a4097581729a2d86b7603baa3910.bindPopup(popup_9a82901a4518e1060a7561217655f48d)
+        ;
+
+        
+    
+    
+                marker_5527a4097581729a2d86b7603baa3910.setIcon(icon_dce2af5ef80b058591656d09c5b3ad81);
+            
+    
+            var marker_fd5e39a33ae0d6d5528dffbeede8b622 = L.marker(
+                [28.066384, -16.653291],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_10d1f692c4730f0d2f5118eac1ca30f0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_17f9f8ebeb96b8cc877171db202880a4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_014af119c3c8462de199c4f31544be72 = $(`<div id="html_014af119c3c8462de199c4f31544be72" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_17f9f8ebeb96b8cc877171db202880a4.setContent(html_014af119c3c8462de199c4f31544be72);
+            
+        
+
+        marker_fd5e39a33ae0d6d5528dffbeede8b622.bindPopup(popup_17f9f8ebeb96b8cc877171db202880a4)
+        ;
+
+        
+    
+    
+                marker_fd5e39a33ae0d6d5528dffbeede8b622.setIcon(icon_10d1f692c4730f0d2f5118eac1ca30f0);
+            
+    
+            var marker_4e8c8ddc96653ad1c286ec8a1240f540 = L.marker(
+                [28.43, -13.93],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_c0388495b22a573c5d222a2d9712fd0b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_387d84210fc5aad2c9b18606d700f8eb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_58718b88f3c99255da940553be5dc3f7 = $(`<div id="html_58718b88f3c99255da940553be5dc3f7" style="width: 100.0%; height: 100.0%;">Especie predicha: Crocidura canariensis</div>`)[0];
+                popup_387d84210fc5aad2c9b18606d700f8eb.setContent(html_58718b88f3c99255da940553be5dc3f7);
+            
+        
+
+        marker_4e8c8ddc96653ad1c286ec8a1240f540.bindPopup(popup_387d84210fc5aad2c9b18606d700f8eb)
+        ;
+
+        
+    
+    
+                marker_4e8c8ddc96653ad1c286ec8a1240f540.setIcon(icon_c0388495b22a573c5d222a2d9712fd0b);
+            
+    
+            var marker_287905733bffe16c8e02c5d92c035f3d = L.marker(
+                [28.43, -14.13],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_f64ad46999f68bad07d815e17d349fff = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_12572b7610df0b06034e2c1b1bf37e7c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1371cb8a6b0394390c6585fe8c9ba7c5 = $(`<div id="html_1371cb8a6b0394390c6585fe8c9ba7c5" style="width: 100.0%; height: 100.0%;">Especie predicha: Crocidura canariensis</div>`)[0];
+                popup_12572b7610df0b06034e2c1b1bf37e7c.setContent(html_1371cb8a6b0394390c6585fe8c9ba7c5);
+            
+        
+
+        marker_287905733bffe16c8e02c5d92c035f3d.bindPopup(popup_12572b7610df0b06034e2c1b1bf37e7c)
+        ;
+
+        
+    
+    
+                marker_287905733bffe16c8e02c5d92c035f3d.setIcon(icon_f64ad46999f68bad07d815e17d349fff);
+            
+    
+            var marker_767aaaf2cdfcc27ebb2666fc602f129f = L.marker(
+                [28.398387, -16.549983],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_5fad9a522641fc949d723796c7546304 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3b179c336fb9a9e933bde30e1edb3387 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_89741dd2cd3fca513c1e21a0a9f4fdc1 = $(`<div id="html_89741dd2cd3fca513c1e21a0a9f4fdc1" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_3b179c336fb9a9e933bde30e1edb3387.setContent(html_89741dd2cd3fca513c1e21a0a9f4fdc1);
+            
+        
+
+        marker_767aaaf2cdfcc27ebb2666fc602f129f.bindPopup(popup_3b179c336fb9a9e933bde30e1edb3387)
+        ;
+
+        
+    
+    
+                marker_767aaaf2cdfcc27ebb2666fc602f129f.setIcon(icon_5fad9a522641fc949d723796c7546304);
+            
+    
+            var marker_39096013cdfc32292719f99b3d19f292 = L.marker(
+                [28.189589, -16.604729],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_9f5211d8ba35aac1c53039503183fdf1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4e0541fc5441e7e8795da4a3b9dbab3f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e39d315301011b0653475244d879f31d = $(`<div id="html_e39d315301011b0653475244d879f31d" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_4e0541fc5441e7e8795da4a3b9dbab3f.setContent(html_e39d315301011b0653475244d879f31d);
+            
+        
+
+        marker_39096013cdfc32292719f99b3d19f292.bindPopup(popup_4e0541fc5441e7e8795da4a3b9dbab3f)
+        ;
+
+        
+    
+    
+                marker_39096013cdfc32292719f99b3d19f292.setIcon(icon_9f5211d8ba35aac1c53039503183fdf1);
+            
+    
+            var marker_774eb09c460edeef60e1b14b1333f0b7 = L.marker(
+                [27.944025, -15.694351],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_80fa371c9987902a7c8c7f2ddf8902b2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7e60c771e54756d888c64400208e9bfd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a23e9f86832d3c9dd2ac2e36f0f61f9c = $(`<div id="html_a23e9f86832d3c9dd2ac2e36f0f61f9c" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_7e60c771e54756d888c64400208e9bfd.setContent(html_a23e9f86832d3c9dd2ac2e36f0f61f9c);
+            
+        
+
+        marker_774eb09c460edeef60e1b14b1333f0b7.bindPopup(popup_7e60c771e54756d888c64400208e9bfd)
+        ;
+
+        
+    
+    
+                marker_774eb09c460edeef60e1b14b1333f0b7.setIcon(icon_80fa371c9987902a7c8c7f2ddf8902b2);
+            
+    
+            var marker_ce52ab280acf44abc145c05265cb5f99 = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_8eecd306cf79372fc8675f6dfbe5fc04 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_73b85d320ca4bae9dc8b055705d65dea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6ecc91811686433e496aec0abf2164f3 = $(`<div id="html_6ecc91811686433e496aec0abf2164f3" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_73b85d320ca4bae9dc8b055705d65dea.setContent(html_6ecc91811686433e496aec0abf2164f3);
+            
+        
+
+        marker_ce52ab280acf44abc145c05265cb5f99.bindPopup(popup_73b85d320ca4bae9dc8b055705d65dea)
+        ;
+
+        
+    
+    
+                marker_ce52ab280acf44abc145c05265cb5f99.setIcon(icon_8eecd306cf79372fc8675f6dfbe5fc04);
+            
+    
+            var marker_e1043dc11ba7fe45014fbfd6cd9094a2 = L.marker(
+                [27.96105, -15.589514],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_3b6edc9123551e0d9c2e2d20adb52946 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bddaf5a3d54239c9afc9ffb022615239 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cc61ab31c9fab7848ad22cf06e9245e8 = $(`<div id="html_cc61ab31c9fab7848ad22cf06e9245e8" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_bddaf5a3d54239c9afc9ffb022615239.setContent(html_cc61ab31c9fab7848ad22cf06e9245e8);
+            
+        
+
+        marker_e1043dc11ba7fe45014fbfd6cd9094a2.bindPopup(popup_bddaf5a3d54239c9afc9ffb022615239)
+        ;
+
+        
+    
+    
+                marker_e1043dc11ba7fe45014fbfd6cd9094a2.setIcon(icon_3b6edc9123551e0d9c2e2d20adb52946);
+            
+    
+            var marker_62cf730358a118532cc5c06caa9b9b6c = L.marker(
+                [28.679306, -17.914372],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_27233ba81995f53a9f2aff4baad707c2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_86d487ddb6243830fca12b27228b6359 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5614a1a52a883ccd5cff16c1848d8ed8 = $(`<div id="html_5614a1a52a883ccd5cff16c1848d8ed8" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_86d487ddb6243830fca12b27228b6359.setContent(html_5614a1a52a883ccd5cff16c1848d8ed8);
+            
+        
+
+        marker_62cf730358a118532cc5c06caa9b9b6c.bindPopup(popup_86d487ddb6243830fca12b27228b6359)
+        ;
+
+        
+    
+    
+                marker_62cf730358a118532cc5c06caa9b9b6c.setIcon(icon_27233ba81995f53a9f2aff4baad707c2);
+            
+    
+            var marker_c15724cc28737e42b67e4f97a9ec72fe = L.marker(
+                [28.537997, -16.308403],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_0a08fe16dad581a46deaf179fcc52950 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6f0a766365f7d9040ef09203d2593073 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fc549b1afa3e63ceefe74bc05248ec11 = $(`<div id="html_fc549b1afa3e63ceefe74bc05248ec11" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_6f0a766365f7d9040ef09203d2593073.setContent(html_fc549b1afa3e63ceefe74bc05248ec11);
+            
+        
+
+        marker_c15724cc28737e42b67e4f97a9ec72fe.bindPopup(popup_6f0a766365f7d9040ef09203d2593073)
+        ;
+
+        
+    
+    
+                marker_c15724cc28737e42b67e4f97a9ec72fe.setIcon(icon_0a08fe16dad581a46deaf179fcc52950);
+            
+    
+            var marker_bc63ac7eb925dd4521bfa7565e118490 = L.marker(
+                [28.33, -16.790001],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_1e0164964ec894073e53b1f380a09369 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4dfb050e7cad69420a591a391e6da26a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ebb70f705c66939ce80034c7ab990d75 = $(`<div id="html_ebb70f705c66939ce80034c7ab990d75" style="width: 100.0%; height: 100.0%;">Especie predicha: Plecotus teneriffae</div>`)[0];
+                popup_4dfb050e7cad69420a591a391e6da26a.setContent(html_ebb70f705c66939ce80034c7ab990d75);
+            
+        
+
+        marker_bc63ac7eb925dd4521bfa7565e118490.bindPopup(popup_4dfb050e7cad69420a591a391e6da26a)
+        ;
+
+        
+    
+    
+                marker_bc63ac7eb925dd4521bfa7565e118490.setIcon(icon_1e0164964ec894073e53b1f380a09369);
+            
+    
+            var marker_5a3470b8379dbbebded55488dd9d2922 = L.marker(
+                [28.554094, -16.263978],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_feabf75dbbe88f00abaeec5d5ffd2c0a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3f6c1ee1a9922b84a53eea146bab7ddc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b62f6995f5b22e0cb3a5a9adfd58ca7c = $(`<div id="html_b62f6995f5b22e0cb3a5a9adfd58ca7c" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_3f6c1ee1a9922b84a53eea146bab7ddc.setContent(html_b62f6995f5b22e0cb3a5a9adfd58ca7c);
+            
+        
+
+        marker_5a3470b8379dbbebded55488dd9d2922.bindPopup(popup_3f6c1ee1a9922b84a53eea146bab7ddc)
+        ;
+
+        
+    
+    
+                marker_5a3470b8379dbbebded55488dd9d2922.setIcon(icon_feabf75dbbe88f00abaeec5d5ffd2c0a);
+            
+    
+            var marker_9fc38bda2344a9c0b65b95e570097bb5 = L.marker(
+                [28.259363, -16.770092],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_383bf2ff0f4a179694b87f1512049ebf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d652feca0cbef891e8be317d965c5c14 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_33307defe0564ca0164ce55ca493dea6 = $(`<div id="html_33307defe0564ca0164ce55ca493dea6" style="width: 100.0%; height: 100.0%;">Especie predicha: Plecotus teneriffae</div>`)[0];
+                popup_d652feca0cbef891e8be317d965c5c14.setContent(html_33307defe0564ca0164ce55ca493dea6);
+            
+        
+
+        marker_9fc38bda2344a9c0b65b95e570097bb5.bindPopup(popup_d652feca0cbef891e8be317d965c5c14)
+        ;
+
+        
+    
+    
+                marker_9fc38bda2344a9c0b65b95e570097bb5.setIcon(icon_383bf2ff0f4a179694b87f1512049ebf);
+            
+    
+            var marker_a71f13390761097ef9cdfa9ec280e5cd = L.marker(
+                [28.273762, -16.76827],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_23477ebe5e2c023ecf3a9d95feea7541 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7e24ca6b5004d037241d6a6321cd8e43 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5789a911cdd691fab253fb92924a3eab = $(`<div id="html_5789a911cdd691fab253fb92924a3eab" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_7e24ca6b5004d037241d6a6321cd8e43.setContent(html_5789a911cdd691fab253fb92924a3eab);
+            
+        
+
+        marker_a71f13390761097ef9cdfa9ec280e5cd.bindPopup(popup_7e24ca6b5004d037241d6a6321cd8e43)
+        ;
+
+        
+    
+    
+                marker_a71f13390761097ef9cdfa9ec280e5cd.setIcon(icon_23477ebe5e2c023ecf3a9d95feea7541);
+            
+    
+            var marker_8dcae1a26d70fb41372742c329c85821 = L.marker(
+                [28.256342, -16.623907],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_ee9530642f11d9aebd2d4e657d56e0fe = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_24ad35cd01906fe235ae0d9dd62c1fa7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bf81224d0804ba80496a538a6b9df7d7 = $(`<div id="html_bf81224d0804ba80496a538a6b9df7d7" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_24ad35cd01906fe235ae0d9dd62c1fa7.setContent(html_bf81224d0804ba80496a538a6b9df7d7);
+            
+        
+
+        marker_8dcae1a26d70fb41372742c329c85821.bindPopup(popup_24ad35cd01906fe235ae0d9dd62c1fa7)
+        ;
+
+        
+    
+    
+                marker_8dcae1a26d70fb41372742c329c85821.setIcon(icon_ee9530642f11d9aebd2d4e657d56e0fe);
+            
+    
+            var marker_43cabfb80ea4e298679a06e03b8875ed = L.marker(
+                [28.523972, -16.291825],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_364c22d645faea49a58a4c049d9dbf39 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_61abc0c0e5a7ca24eccf8f3a43914a57 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4fc04aa850b8589d191b948dfa765da3 = $(`<div id="html_4fc04aa850b8589d191b948dfa765da3" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_61abc0c0e5a7ca24eccf8f3a43914a57.setContent(html_4fc04aa850b8589d191b948dfa765da3);
+            
+        
+
+        marker_43cabfb80ea4e298679a06e03b8875ed.bindPopup(popup_61abc0c0e5a7ca24eccf8f3a43914a57)
+        ;
+
+        
+    
+    
+                marker_43cabfb80ea4e298679a06e03b8875ed.setIcon(icon_364c22d645faea49a58a4c049d9dbf39);
+            
+    
+            var marker_dde110148204002c11c212cb0fbb4391 = L.marker(
+                [28.255285, -16.470028],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_d50d7f63cae89f4fd668522d0c4becc3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5ca24f1b455ecca877623fb72ebdddf3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6737e52f778bbe9bc7d52b9c1f693b38 = $(`<div id="html_6737e52f778bbe9bc7d52b9c1f693b38" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_5ca24f1b455ecca877623fb72ebdddf3.setContent(html_6737e52f778bbe9bc7d52b9c1f693b38);
+            
+        
+
+        marker_dde110148204002c11c212cb0fbb4391.bindPopup(popup_5ca24f1b455ecca877623fb72ebdddf3)
+        ;
+
+        
+    
+    
+                marker_dde110148204002c11c212cb0fbb4391.setIcon(icon_d50d7f63cae89f4fd668522d0c4becc3);
+            
+    
+            var marker_d6f1e735af4f0b9d4ce9ba914efb6743 = L.marker(
+                [28.33, -16.68],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_184e0f659d510981c838772371a73d1d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c51e4b5b2e5a5dd55ee07ac5d08b0955 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6482cf747300303ecff957d399fa77c1 = $(`<div id="html_6482cf747300303ecff957d399fa77c1" style="width: 100.0%; height: 100.0%;">Especie predicha: Plecotus teneriffae</div>`)[0];
+                popup_c51e4b5b2e5a5dd55ee07ac5d08b0955.setContent(html_6482cf747300303ecff957d399fa77c1);
+            
+        
+
+        marker_d6f1e735af4f0b9d4ce9ba914efb6743.bindPopup(popup_c51e4b5b2e5a5dd55ee07ac5d08b0955)
+        ;
+
+        
+    
+    
+                marker_d6f1e735af4f0b9d4ce9ba914efb6743.setIcon(icon_184e0f659d510981c838772371a73d1d);
+            
+    
+            var marker_a2520c0c50c0b303e93d301c7dd10e4e = L.marker(
+                [28.190191, -16.665777],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_fa5426a6b68cbcfcae1ec38b79dad687 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5841b39a680785692058a816d234bf6f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e4a2b47ee12b896a273c1696d1287511 = $(`<div id="html_e4a2b47ee12b896a273c1696d1287511" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_5841b39a680785692058a816d234bf6f.setContent(html_e4a2b47ee12b896a273c1696d1287511);
+            
+        
+
+        marker_a2520c0c50c0b303e93d301c7dd10e4e.bindPopup(popup_5841b39a680785692058a816d234bf6f)
+        ;
+
+        
+    
+    
+                marker_a2520c0c50c0b303e93d301c7dd10e4e.setIcon(icon_fa5426a6b68cbcfcae1ec38b79dad687);
+            
+    
+            var marker_8d3abfdd3b1465e0f5d0029c40f08675 = L.marker(
+                [28.352867, -16.408559],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_018edaca2b52921d2089a3505cf25484 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a7ed295e65626560a13ab6476095aef1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0395af49f48e1ffbde8362f140580e3a = $(`<div id="html_0395af49f48e1ffbde8362f140580e3a" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_a7ed295e65626560a13ab6476095aef1.setContent(html_0395af49f48e1ffbde8362f140580e3a);
+            
+        
+
+        marker_8d3abfdd3b1465e0f5d0029c40f08675.bindPopup(popup_a7ed295e65626560a13ab6476095aef1)
+        ;
+
+        
+    
+    
+                marker_8d3abfdd3b1465e0f5d0029c40f08675.setIcon(icon_018edaca2b52921d2089a3505cf25484);
+            
+    
+            var marker_a7c8101f66a4774049fddc69dd561c2a = L.marker(
+                [28.694252, -17.782625],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_0212d24a2a4be81adab334abea7c7618 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5e45c09c0ea81c6e44f360219b69f4ac = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f6c62a6f0b9fa0ac9beb0a648ff57dc3 = $(`<div id="html_f6c62a6f0b9fa0ac9beb0a648ff57dc3" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_5e45c09c0ea81c6e44f360219b69f4ac.setContent(html_f6c62a6f0b9fa0ac9beb0a648ff57dc3);
+            
+        
+
+        marker_a7c8101f66a4774049fddc69dd561c2a.bindPopup(popup_5e45c09c0ea81c6e44f360219b69f4ac)
+        ;
+
+        
+    
+    
+                marker_a7c8101f66a4774049fddc69dd561c2a.setIcon(icon_0212d24a2a4be81adab334abea7c7618);
+            
+    
+            var marker_b267dd94759a09d63cb77f138ad594b3 = L.marker(
+                [27.96105, -15.589514],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_89a822c4742b0bd827a87ac8467bfd6d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_84b4ada1d52c629e9e97029a0cc5c2f4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_93a4efd2825ed87b6150095e63c65def = $(`<div id="html_93a4efd2825ed87b6150095e63c65def" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_84b4ada1d52c629e9e97029a0cc5c2f4.setContent(html_93a4efd2825ed87b6150095e63c65def);
+            
+        
+
+        marker_b267dd94759a09d63cb77f138ad594b3.bindPopup(popup_84b4ada1d52c629e9e97029a0cc5c2f4)
+        ;
+
+        
+    
+    
+                marker_b267dd94759a09d63cb77f138ad594b3.setIcon(icon_89a822c4742b0bd827a87ac8467bfd6d);
+            
+    
+            var marker_4f31600cf376e0f4c84894eeb706b9a7 = L.marker(
+                [28.3057, -16.5649],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_a6c7ff4bddef15e85f2aca020f8db451 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bb01de24d568ed5a082c04c6a44070df = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_20a2cf8655c3f5664e41d2b6c5c81c8a = $(`<div id="html_20a2cf8655c3f5664e41d2b6c5c81c8a" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_bb01de24d568ed5a082c04c6a44070df.setContent(html_20a2cf8655c3f5664e41d2b6c5c81c8a);
+            
+        
+
+        marker_4f31600cf376e0f4c84894eeb706b9a7.bindPopup(popup_bb01de24d568ed5a082c04c6a44070df)
+        ;
+
+        
+    
+    
+                marker_4f31600cf376e0f4c84894eeb706b9a7.setIcon(icon_a6c7ff4bddef15e85f2aca020f8db451);
+            
+    
+            var marker_df1ee156ffad41b3e7f1be114b0717ba = L.marker(
+                [27.96105, -15.589514],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_6ff91a74e9690834c67ab0421abd569f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3c73e4094e7ed6a0ce3c2d3782cc7720 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2abf6c056d6e03f595cafa48b598efec = $(`<div id="html_2abf6c056d6e03f595cafa48b598efec" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_3c73e4094e7ed6a0ce3c2d3782cc7720.setContent(html_2abf6c056d6e03f595cafa48b598efec);
+            
+        
+
+        marker_df1ee156ffad41b3e7f1be114b0717ba.bindPopup(popup_3c73e4094e7ed6a0ce3c2d3782cc7720)
+        ;
+
+        
+    
+    
+                marker_df1ee156ffad41b3e7f1be114b0717ba.setIcon(icon_6ff91a74e9690834c67ab0421abd569f);
+            
+    
+            var marker_efab2e597e9177cf6f272cec69d08634 = L.marker(
+                [28.31336, -16.621731],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_5f01d99f54ffd36ef94b68e0ba92dbd6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c5d1ffdfcb1df5e1e0a6b798e67bbc7c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3a20e8985cbd0feff33c785b5d8bcebf = $(`<div id="html_3a20e8985cbd0feff33c785b5d8bcebf" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_c5d1ffdfcb1df5e1e0a6b798e67bbc7c.setContent(html_3a20e8985cbd0feff33c785b5d8bcebf);
+            
+        
+
+        marker_efab2e597e9177cf6f272cec69d08634.bindPopup(popup_c5d1ffdfcb1df5e1e0a6b798e67bbc7c)
+        ;
+
+        
+    
+    
+                marker_efab2e597e9177cf6f272cec69d08634.setIcon(icon_5f01d99f54ffd36ef94b68e0ba92dbd6);
+            
+    
+            var marker_f317e9f04a1326630c47b4751f93d0ce = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_903fee1e33fefde161dcac5778c5df28 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7cb757162c3c2e1e9116461a1abad9df = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d30fbcc351400a6fbbc2e5f3baf8d44a = $(`<div id="html_d30fbcc351400a6fbbc2e5f3baf8d44a" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_7cb757162c3c2e1e9116461a1abad9df.setContent(html_d30fbcc351400a6fbbc2e5f3baf8d44a);
+            
+        
+
+        marker_f317e9f04a1326630c47b4751f93d0ce.bindPopup(popup_7cb757162c3c2e1e9116461a1abad9df)
+        ;
+
+        
+    
+    
+                marker_f317e9f04a1326630c47b4751f93d0ce.setIcon(icon_903fee1e33fefde161dcac5778c5df28);
+            
+    
+            var marker_3870b90e3819eb8a824774f82a208f01 = L.marker(
+                [28.762765, -17.77475],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_da16c1d02852f3624664a1f6260620ff = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5ad187b951709afc284250954cce39a2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_25d4e4f8f0bcfeae93a0d7bffe20b169 = $(`<div id="html_25d4e4f8f0bcfeae93a0d7bffe20b169" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_5ad187b951709afc284250954cce39a2.setContent(html_25d4e4f8f0bcfeae93a0d7bffe20b169);
+            
+        
+
+        marker_3870b90e3819eb8a824774f82a208f01.bindPopup(popup_5ad187b951709afc284250954cce39a2)
+        ;
+
+        
+    
+    
+                marker_3870b90e3819eb8a824774f82a208f01.setIcon(icon_da16c1d02852f3624664a1f6260620ff);
+            
+    
+            var marker_f1db50ebc87a546fb5359ce4b935b272 = L.marker(
+                [27.944025, -15.694351],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_6808ba514fe5b7983fa1c617ae2f4637 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4777a74ae5579b14ea7263506dac3b8f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8abd5fa6a3b20ba4c9ee5ffe7a1e3c48 = $(`<div id="html_8abd5fa6a3b20ba4c9ee5ffe7a1e3c48" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_4777a74ae5579b14ea7263506dac3b8f.setContent(html_8abd5fa6a3b20ba4c9ee5ffe7a1e3c48);
+            
+        
+
+        marker_f1db50ebc87a546fb5359ce4b935b272.bindPopup(popup_4777a74ae5579b14ea7263506dac3b8f)
+        ;
+
+        
+    
+    
+                marker_f1db50ebc87a546fb5359ce4b935b272.setIcon(icon_6808ba514fe5b7983fa1c617ae2f4637);
+            
+    
+            var marker_ee6fdb435b69daaa411f9bc7e8fd1f08 = L.marker(
+                [28.31799, -16.684062],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_f91230b471f803e4e16386ebaafba9d0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_141e7e7f9bcaeb065cd9193043513f81 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_23fe096101050b9a742744fba3e3e34d = $(`<div id="html_23fe096101050b9a742744fba3e3e34d" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_141e7e7f9bcaeb065cd9193043513f81.setContent(html_23fe096101050b9a742744fba3e3e34d);
+            
+        
+
+        marker_ee6fdb435b69daaa411f9bc7e8fd1f08.bindPopup(popup_141e7e7f9bcaeb065cd9193043513f81)
+        ;
+
+        
+    
+    
+                marker_ee6fdb435b69daaa411f9bc7e8fd1f08.setIcon(icon_f91230b471f803e4e16386ebaafba9d0);
+            
+    
+            var marker_457cf4ad8d461d2f382a6c158ba89aaf = L.marker(
+                [28.381058, -16.571424],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_355ec0a78697dfee12806cbe75ba1c48 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4ffe78e102a85e9553011cbcb51bb86c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d1f1f9e72281b9c1cf6b6511c7185b33 = $(`<div id="html_d1f1f9e72281b9c1cf6b6511c7185b33" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_4ffe78e102a85e9553011cbcb51bb86c.setContent(html_d1f1f9e72281b9c1cf6b6511c7185b33);
+            
+        
+
+        marker_457cf4ad8d461d2f382a6c158ba89aaf.bindPopup(popup_4ffe78e102a85e9553011cbcb51bb86c)
+        ;
+
+        
+    
+    
+                marker_457cf4ad8d461d2f382a6c158ba89aaf.setIcon(icon_355ec0a78697dfee12806cbe75ba1c48);
+            
+    
+            var marker_1f3003aae910d1cc8e7a4d874607205d = L.marker(
+                [27.943987, -15.664331],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_98f2baea7934d764d6c97ae0e3f109d6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_473a5f1623335eb9305443dee6da2bb1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e948e5cefd65f4f04decb88784c1f4b3 = $(`<div id="html_e948e5cefd65f4f04decb88784c1f4b3" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_473a5f1623335eb9305443dee6da2bb1.setContent(html_e948e5cefd65f4f04decb88784c1f4b3);
+            
+        
+
+        marker_1f3003aae910d1cc8e7a4d874607205d.bindPopup(popup_473a5f1623335eb9305443dee6da2bb1)
+        ;
+
+        
+    
+    
+                marker_1f3003aae910d1cc8e7a4d874607205d.setIcon(icon_98f2baea7934d764d6c97ae0e3f109d6);
+            
+    
+            var marker_42b5c1f029274c47831aa23c9748d182 = L.marker(
+                [27.802805, -15.692988],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_a627d8c34f26a3013b9578060fa9ba78 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bac6b226231f0b84331e0d76ebbb24f7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3dce9d2088800f1c6e51bd56291412c9 = $(`<div id="html_3dce9d2088800f1c6e51bd56291412c9" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_bac6b226231f0b84331e0d76ebbb24f7.setContent(html_3dce9d2088800f1c6e51bd56291412c9);
+            
+        
+
+        marker_42b5c1f029274c47831aa23c9748d182.bindPopup(popup_bac6b226231f0b84331e0d76ebbb24f7)
+        ;
+
+        
+    
+    
+                marker_42b5c1f029274c47831aa23c9748d182.setIcon(icon_a627d8c34f26a3013b9578060fa9ba78);
+            
+    
+            var marker_38a8ced52fd8d7de0146aa6fa20fa6e6 = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_dae618840b98b9141cc995abc6be1e68 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_87e5cfecfaa5b6c5b62471b02852844e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2327aea65e30573ef3cd6e606f21ad76 = $(`<div id="html_2327aea65e30573ef3cd6e606f21ad76" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_87e5cfecfaa5b6c5b62471b02852844e.setContent(html_2327aea65e30573ef3cd6e606f21ad76);
+            
+        
+
+        marker_38a8ced52fd8d7de0146aa6fa20fa6e6.bindPopup(popup_87e5cfecfaa5b6c5b62471b02852844e)
+        ;
+
+        
+    
+    
+                marker_38a8ced52fd8d7de0146aa6fa20fa6e6.setIcon(icon_dae618840b98b9141cc995abc6be1e68);
+            
+    
+            var marker_495d8c2a6449451a985a350c4fe5c3d2 = L.marker(
+                [29.039464, -13.734714],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_ec7f969bc19986fc5c2a0746ed81d8e6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fe4db81792f4579d159c5236575bc638 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_298e2235132b9878d8888e5daa19deca = $(`<div id="html_298e2235132b9878d8888e5daa19deca" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_fe4db81792f4579d159c5236575bc638.setContent(html_298e2235132b9878d8888e5daa19deca);
+            
+        
+
+        marker_495d8c2a6449451a985a350c4fe5c3d2.bindPopup(popup_fe4db81792f4579d159c5236575bc638)
+        ;
+
+        
+    
+    
+                marker_495d8c2a6449451a985a350c4fe5c3d2.setIcon(icon_ec7f969bc19986fc5c2a0746ed81d8e6);
+            
+    
+            var marker_b282ed8fe0c74dfbd5badf3c97d03198 = L.marker(
+                [28.33, -16.379999],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_2b4df67d7704359c0595432271fb0281 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c28e0718b1ad99df549e4702e65dd36a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_561b29d917e8d960970135a687f69e40 = $(`<div id="html_561b29d917e8d960970135a687f69e40" style="width: 100.0%; height: 100.0%;">Especie predicha: Plecotus teneriffae</div>`)[0];
+                popup_c28e0718b1ad99df549e4702e65dd36a.setContent(html_561b29d917e8d960970135a687f69e40);
+            
+        
+
+        marker_b282ed8fe0c74dfbd5badf3c97d03198.bindPopup(popup_c28e0718b1ad99df549e4702e65dd36a)
+        ;
+
+        
+    
+    
+                marker_b282ed8fe0c74dfbd5badf3c97d03198.setIcon(icon_2b4df67d7704359c0595432271fb0281);
+            
+    
+            var marker_dd28544730eafa41f9d2eb89aa198fae = L.marker(
+                [28.368039, -16.48607],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_0989453333563688a5f1077f95441137 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a60e1d90f2971eef3d1d330236abe991 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_44a6a3b30bfa30600d50e07930c67a5d = $(`<div id="html_44a6a3b30bfa30600d50e07930c67a5d" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_a60e1d90f2971eef3d1d330236abe991.setContent(html_44a6a3b30bfa30600d50e07930c67a5d);
+            
+        
+
+        marker_dd28544730eafa41f9d2eb89aa198fae.bindPopup(popup_a60e1d90f2971eef3d1d330236abe991)
+        ;
+
+        
+    
+    
+                marker_dd28544730eafa41f9d2eb89aa198fae.setIcon(icon_0989453333563688a5f1077f95441137);
+            
+    
+            var marker_ed726dacb1a58fc26b3992af327a8565 = L.marker(
+                [28.329346, -16.810101],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_561f3436bcf1f5d0cb4cbcacc62be488 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e95bab7bd0a491a55ccdaaec7bf2e827 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d7a0b2837d7edfaa1cc17f425599ae8d = $(`<div id="html_d7a0b2837d7edfaa1cc17f425599ae8d" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_e95bab7bd0a491a55ccdaaec7bf2e827.setContent(html_d7a0b2837d7edfaa1cc17f425599ae8d);
+            
+        
+
+        marker_ed726dacb1a58fc26b3992af327a8565.bindPopup(popup_e95bab7bd0a491a55ccdaaec7bf2e827)
+        ;
+
+        
+    
+    
+                marker_ed726dacb1a58fc26b3992af327a8565.setIcon(icon_561f3436bcf1f5d0cb4cbcacc62be488);
+            
+    
+            var marker_6ba481f7bdc090c30b871f1b943ae2a4 = L.marker(
+                [28.613426, -17.835939],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_046b16c91180e42982ecb3906a8c0fad = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ef0049e77dae432b81f386b29732ca72 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1cb7290cc67ff3debe7f78b5ceb9a85b = $(`<div id="html_1cb7290cc67ff3debe7f78b5ceb9a85b" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_ef0049e77dae432b81f386b29732ca72.setContent(html_1cb7290cc67ff3debe7f78b5ceb9a85b);
+            
+        
+
+        marker_6ba481f7bdc090c30b871f1b943ae2a4.bindPopup(popup_ef0049e77dae432b81f386b29732ca72)
+        ;
+
+        
+    
+    
+                marker_6ba481f7bdc090c30b871f1b943ae2a4.setIcon(icon_046b16c91180e42982ecb3906a8c0fad);
+            
+    
+            var marker_f2b573e435bd6713c4e694a48ed17e9d = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_e97f811fbfaf5db1fc314604b6eaf1f5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9232f899de630079b45c9fcdd298734d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f0aad9250608e63bb5a07b199d981e0d = $(`<div id="html_f0aad9250608e63bb5a07b199d981e0d" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_9232f899de630079b45c9fcdd298734d.setContent(html_f0aad9250608e63bb5a07b199d981e0d);
+            
+        
+
+        marker_f2b573e435bd6713c4e694a48ed17e9d.bindPopup(popup_9232f899de630079b45c9fcdd298734d)
+        ;
+
+        
+    
+    
+                marker_f2b573e435bd6713c4e694a48ed17e9d.setIcon(icon_e97f811fbfaf5db1fc314604b6eaf1f5);
+            
+    
+            var marker_43ea9a8e5a293093ec215eedb99e4535 = L.marker(
+                [28.284815, -16.763945],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_ddf1314fe13cee3955aa0aaab79feae2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_99fb585586558279eca4b908c1131fe8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e320fd41734fbcbbeba008caf7d8296a = $(`<div id="html_e320fd41734fbcbbeba008caf7d8296a" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_99fb585586558279eca4b908c1131fe8.setContent(html_e320fd41734fbcbbeba008caf7d8296a);
+            
+        
+
+        marker_43ea9a8e5a293093ec215eedb99e4535.bindPopup(popup_99fb585586558279eca4b908c1131fe8)
+        ;
+
+        
+    
+    
+                marker_43ea9a8e5a293093ec215eedb99e4535.setIcon(icon_ddf1314fe13cee3955aa0aaab79feae2);
+            
+    
+            var marker_5ac0fc1350d23416f1d6f7b273f8c1aa = L.marker(
+                [28.342645, -16.856588],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_b344d1ed15b346655ba659e7dee394a7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_95f946cfc69481cbcb8bf59ae1d8c4f2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_14adc7c4ccafce19ab09c1662a1890a3 = $(`<div id="html_14adc7c4ccafce19ab09c1662a1890a3" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_95f946cfc69481cbcb8bf59ae1d8c4f2.setContent(html_14adc7c4ccafce19ab09c1662a1890a3);
+            
+        
+
+        marker_5ac0fc1350d23416f1d6f7b273f8c1aa.bindPopup(popup_95f946cfc69481cbcb8bf59ae1d8c4f2)
+        ;
+
+        
+    
+    
+                marker_5ac0fc1350d23416f1d6f7b273f8c1aa.setIcon(icon_b344d1ed15b346655ba659e7dee394a7);
+            
+    
+            var marker_bc4091cbd3a040f89e32169126136e25 = L.marker(
+                [28.15531, -17.274164],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_76ec34f6b90350e306b0e72a635dfa00 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a534cfd0e95f19a64f762b2e8bfe2e8a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1eed67c68dc1f20aac110c496f480747 = $(`<div id="html_1eed67c68dc1f20aac110c496f480747" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_a534cfd0e95f19a64f762b2e8bfe2e8a.setContent(html_1eed67c68dc1f20aac110c496f480747);
+            
+        
+
+        marker_bc4091cbd3a040f89e32169126136e25.bindPopup(popup_a534cfd0e95f19a64f762b2e8bfe2e8a)
+        ;
+
+        
+    
+    
+                marker_bc4091cbd3a040f89e32169126136e25.setIcon(icon_76ec34f6b90350e306b0e72a635dfa00);
+            
+    
+            var marker_a83169257daab505830e6f33f4b184f3 = L.marker(
+                [27.969975, -15.584659],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_c86325becec1bf8d73f8490736c8df52 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_937676d78966e2027d00c32fd01f9342 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ca80ac80d3473c408544ba6c8170ecc0 = $(`<div id="html_ca80ac80d3473c408544ba6c8170ecc0" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_937676d78966e2027d00c32fd01f9342.setContent(html_ca80ac80d3473c408544ba6c8170ecc0);
+            
+        
+
+        marker_a83169257daab505830e6f33f4b184f3.bindPopup(popup_937676d78966e2027d00c32fd01f9342)
+        ;
+
+        
+    
+    
+                marker_a83169257daab505830e6f33f4b184f3.setIcon(icon_c86325becec1bf8d73f8490736c8df52);
+            
+    
+            var marker_be6316eade8d66712ab750fab533764a = L.marker(
+                [28.553198, -16.265135],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_d54176985f4a36f105aab2889e6de1dd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_07bb757dfb63989dde295523fcbacc7e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b9c3f90771a753d3f40db8df92e584fe = $(`<div id="html_b9c3f90771a753d3f40db8df92e584fe" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_07bb757dfb63989dde295523fcbacc7e.setContent(html_b9c3f90771a753d3f40db8df92e584fe);
+            
+        
+
+        marker_be6316eade8d66712ab750fab533764a.bindPopup(popup_07bb757dfb63989dde295523fcbacc7e)
+        ;
+
+        
+    
+    
+                marker_be6316eade8d66712ab750fab533764a.setIcon(icon_d54176985f4a36f105aab2889e6de1dd);
+            
+    
+            var marker_12c55e358b0a48cee07348918f6bef46 = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_cd2d177e53f2d9d4007d01de3291acd0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5225822c92192d7b2f59b854cae9091c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_22a32d9d0e0a4c6fa5d3a7178acfe56c = $(`<div id="html_22a32d9d0e0a4c6fa5d3a7178acfe56c" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_5225822c92192d7b2f59b854cae9091c.setContent(html_22a32d9d0e0a4c6fa5d3a7178acfe56c);
+            
+        
+
+        marker_12c55e358b0a48cee07348918f6bef46.bindPopup(popup_5225822c92192d7b2f59b854cae9091c)
+        ;
+
+        
+    
+    
+                marker_12c55e358b0a48cee07348918f6bef46.setIcon(icon_cd2d177e53f2d9d4007d01de3291acd0);
+            
+    
+            var marker_fe29afc569be720abc651db16323e573 = L.marker(
+                [28.3298, -16.5317],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_df8123ab2a85f89c3d4b4125a2870920 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b29c72eb7039ee5472b3027e875b09db = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_905160128227772f4eecfe351ed109d1 = $(`<div id="html_905160128227772f4eecfe351ed109d1" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_b29c72eb7039ee5472b3027e875b09db.setContent(html_905160128227772f4eecfe351ed109d1);
+            
+        
+
+        marker_fe29afc569be720abc651db16323e573.bindPopup(popup_b29c72eb7039ee5472b3027e875b09db)
+        ;
+
+        
+    
+    
+                marker_fe29afc569be720abc651db16323e573.setIcon(icon_df8123ab2a85f89c3d4b4125a2870920);
+            
+    
+            var marker_734a590f3f2fc68aab3e798b0d6cf1d1 = L.marker(
+                [28.327129, -16.812466],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_a2ab7179f1730c24f1d722d5f3537e86 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6406e7e09d946a0aa3d0e46859a23172 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4c1f224a2d0e26779763dc1d62615fca = $(`<div id="html_4c1f224a2d0e26779763dc1d62615fca" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_6406e7e09d946a0aa3d0e46859a23172.setContent(html_4c1f224a2d0e26779763dc1d62615fca);
+            
+        
+
+        marker_734a590f3f2fc68aab3e798b0d6cf1d1.bindPopup(popup_6406e7e09d946a0aa3d0e46859a23172)
+        ;
+
+        
+    
+    
+                marker_734a590f3f2fc68aab3e798b0d6cf1d1.setIcon(icon_a2ab7179f1730c24f1d722d5f3537e86);
+            
+    
+            var marker_a5f5092055e7efb570994fd64a018f77 = L.marker(
+                [28.312815, -16.370957],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_87615b9b8bbf550a5e07631334c0d5c4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_df91d7a09879e729c42cc633f9aef528 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f900f2876401e22c9959c3558b50f0b8 = $(`<div id="html_f900f2876401e22c9959c3558b50f0b8" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_df91d7a09879e729c42cc633f9aef528.setContent(html_f900f2876401e22c9959c3558b50f0b8);
+            
+        
+
+        marker_a5f5092055e7efb570994fd64a018f77.bindPopup(popup_df91d7a09879e729c42cc633f9aef528)
+        ;
+
+        
+    
+    
+                marker_a5f5092055e7efb570994fd64a018f77.setIcon(icon_87615b9b8bbf550a5e07631334c0d5c4);
+            
+    
+            var marker_cf8b79c7934b221dc84ff06c15181b0d = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_7d8d231610dd62851de22933af94304f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ad1f3e2dc96eb674048c2a0c4cc9e0c8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7c3d42e09b12daba49a1fffdd79f70b3 = $(`<div id="html_7c3d42e09b12daba49a1fffdd79f70b3" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_ad1f3e2dc96eb674048c2a0c4cc9e0c8.setContent(html_7c3d42e09b12daba49a1fffdd79f70b3);
+            
+        
+
+        marker_cf8b79c7934b221dc84ff06c15181b0d.bindPopup(popup_ad1f3e2dc96eb674048c2a0c4cc9e0c8)
+        ;
+
+        
+    
+    
+                marker_cf8b79c7934b221dc84ff06c15181b0d.setIcon(icon_7d8d231610dd62851de22933af94304f);
+            
+    
+            var marker_77c5422e9d5ab5360e3a86db9f52d9cf = L.marker(
+                [29.059999, -13.72],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_bf205f4e36cdb0f90759c6d65b2cbeac = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_575117b975c5fd91def1947a95ba859d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2fc8ac1249986dae3daca352fd957c99 = $(`<div id="html_2fc8ac1249986dae3daca352fd957c99" style="width: 100.0%; height: 100.0%;">Especie predicha: Crocidura canariensis</div>`)[0];
+                popup_575117b975c5fd91def1947a95ba859d.setContent(html_2fc8ac1249986dae3daca352fd957c99);
+            
+        
+
+        marker_77c5422e9d5ab5360e3a86db9f52d9cf.bindPopup(popup_575117b975c5fd91def1947a95ba859d)
+        ;
+
+        
+    
+    
+                marker_77c5422e9d5ab5360e3a86db9f52d9cf.setIcon(icon_bf205f4e36cdb0f90759c6d65b2cbeac);
+            
+    
+            var marker_41b38019e1f17fd1f055841b9f783fc5 = L.marker(
+                [28.262177, -16.534585],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_05978754fe77ba1dbf95e381faca37bb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4b4f04d9a0567dcd6aae6acddbbea1c6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fd9a3eb477f9e0e60807ac50d085cabf = $(`<div id="html_fd9a3eb477f9e0e60807ac50d085cabf" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_4b4f04d9a0567dcd6aae6acddbbea1c6.setContent(html_fd9a3eb477f9e0e60807ac50d085cabf);
+            
+        
+
+        marker_41b38019e1f17fd1f055841b9f783fc5.bindPopup(popup_4b4f04d9a0567dcd6aae6acddbbea1c6)
+        ;
+
+        
+    
+    
+                marker_41b38019e1f17fd1f055841b9f783fc5.setIcon(icon_05978754fe77ba1dbf95e381faca37bb);
+            
+    
+            var marker_5138d954876497f721bcd1644534e826 = L.marker(
+                [28.452719, -16.258293],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_e86e53d3431fa621411d90248fbd75b4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4db691de5ece021a65ca9a061d0c3524 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c602fd55416c94e0ff7f49dfcb543c5e = $(`<div id="html_c602fd55416c94e0ff7f49dfcb543c5e" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_4db691de5ece021a65ca9a061d0c3524.setContent(html_c602fd55416c94e0ff7f49dfcb543c5e);
+            
+        
+
+        marker_5138d954876497f721bcd1644534e826.bindPopup(popup_4db691de5ece021a65ca9a061d0c3524)
+        ;
+
+        
+    
+    
+                marker_5138d954876497f721bcd1644534e826.setIcon(icon_e86e53d3431fa621411d90248fbd75b4);
+            
+    
+            var marker_45d8053167f4edbb1ac092c6e438842f = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_1f6adebedd51ddc45afa00b52bfe796e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8582637e5941cb9f2ed4b8b976be16b3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b202e5730cdca23239358e6eb7343454 = $(`<div id="html_b202e5730cdca23239358e6eb7343454" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_8582637e5941cb9f2ed4b8b976be16b3.setContent(html_b202e5730cdca23239358e6eb7343454);
+            
+        
+
+        marker_45d8053167f4edbb1ac092c6e438842f.bindPopup(popup_8582637e5941cb9f2ed4b8b976be16b3)
+        ;
+
+        
+    
+    
+                marker_45d8053167f4edbb1ac092c6e438842f.setIcon(icon_1f6adebedd51ddc45afa00b52bfe796e);
+            
+    
+            var marker_dfea915390bfc85788777375fe4186f9 = L.marker(
+                [28.361725, -16.814887],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_5d5e42d130cf3a62dec18323a978968e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_335551b31175657a47f76a8a9f8995c0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8ce0affd2762df712b5d43875fe5d83e = $(`<div id="html_8ce0affd2762df712b5d43875fe5d83e" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_335551b31175657a47f76a8a9f8995c0.setContent(html_8ce0affd2762df712b5d43875fe5d83e);
+            
+        
+
+        marker_dfea915390bfc85788777375fe4186f9.bindPopup(popup_335551b31175657a47f76a8a9f8995c0)
+        ;
+
+        
+    
+    
+                marker_dfea915390bfc85788777375fe4186f9.setIcon(icon_5d5e42d130cf3a62dec18323a978968e);
+            
+    
+            var marker_beb83aee4c75e440b22bf44bd48756b9 = L.marker(
+                [28.329643, -16.53273],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_412f6201ad9dc4a62c52c62cf3c69151 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_20c296902fe3d0ffafe25daad6a84494 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ea5b376e8a310903e798f71b3f1b03a2 = $(`<div id="html_ea5b376e8a310903e798f71b3f1b03a2" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_20c296902fe3d0ffafe25daad6a84494.setContent(html_ea5b376e8a310903e798f71b3f1b03a2);
+            
+        
+
+        marker_beb83aee4c75e440b22bf44bd48756b9.bindPopup(popup_20c296902fe3d0ffafe25daad6a84494)
+        ;
+
+        
+    
+    
+                marker_beb83aee4c75e440b22bf44bd48756b9.setIcon(icon_412f6201ad9dc4a62c52c62cf3c69151);
+            
+    
+            var marker_7fd6f2aa73d510482db4b0d82896406a = L.marker(
+                [28.501328, -16.320298],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_b1ccd26e5e0eff5c0ad293819e697eb0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_70cdff3be191ae59693875866ab2a8b1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_32fbff96a3567995e85136c5eaccb692 = $(`<div id="html_32fbff96a3567995e85136c5eaccb692" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_70cdff3be191ae59693875866ab2a8b1.setContent(html_32fbff96a3567995e85136c5eaccb692);
+            
+        
+
+        marker_7fd6f2aa73d510482db4b0d82896406a.bindPopup(popup_70cdff3be191ae59693875866ab2a8b1)
+        ;
+
+        
+    
+    
+                marker_7fd6f2aa73d510482db4b0d82896406a.setIcon(icon_b1ccd26e5e0eff5c0ad293819e697eb0);
+            
+    
+            var marker_49e41c99ab86d0b21d132bb74689793d = L.marker(
+                [28.3479, -16.5324],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_9104c13c90a14306c8022005c5effd5f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_167cc1a53dbb944c61ec259a018a8760 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c10b5e0c10572f049121e5cb1c97132 = $(`<div id="html_8c10b5e0c10572f049121e5cb1c97132" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_167cc1a53dbb944c61ec259a018a8760.setContent(html_8c10b5e0c10572f049121e5cb1c97132);
+            
+        
+
+        marker_49e41c99ab86d0b21d132bb74689793d.bindPopup(popup_167cc1a53dbb944c61ec259a018a8760)
+        ;
+
+        
+    
+    
+                marker_49e41c99ab86d0b21d132bb74689793d.setIcon(icon_9104c13c90a14306c8022005c5effd5f);
+            
+    
+            var marker_f90415ce57b0ddef1d932c22027e6406 = L.marker(
+                [28.817396, -17.904893],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_51100d02e0108e010f0f0cd9d19e6182 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7f9388394351d6c1f5e409b75399b77b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2e2f05fbc40529a6dcb7dd4a58f6307d = $(`<div id="html_2e2f05fbc40529a6dcb7dd4a58f6307d" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_7f9388394351d6c1f5e409b75399b77b.setContent(html_2e2f05fbc40529a6dcb7dd4a58f6307d);
+            
+        
+
+        marker_f90415ce57b0ddef1d932c22027e6406.bindPopup(popup_7f9388394351d6c1f5e409b75399b77b)
+        ;
+
+        
+    
+    
+                marker_f90415ce57b0ddef1d932c22027e6406.setIcon(icon_51100d02e0108e010f0f0cd9d19e6182);
+            
+    
+            var marker_4bde48142919f2bb138e17cfd1853b26 = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_88777e0cca86adf17d773f9276719c61 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ae361f6f881eb4769d48202aff186b5a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ab27ecf0eb5c4f64aa5f8619fc6a84a6 = $(`<div id="html_ab27ecf0eb5c4f64aa5f8619fc6a84a6" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_ae361f6f881eb4769d48202aff186b5a.setContent(html_ab27ecf0eb5c4f64aa5f8619fc6a84a6);
+            
+        
+
+        marker_4bde48142919f2bb138e17cfd1853b26.bindPopup(popup_ae361f6f881eb4769d48202aff186b5a)
+        ;
+
+        
+    
+    
+                marker_4bde48142919f2bb138e17cfd1853b26.setIcon(icon_88777e0cca86adf17d773f9276719c61);
+            
+    
+            var marker_e5a8498b0aeb54ca7799a27210dd87ea = L.marker(
+                [28.23455, -16.605135],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_76769cf6ae10e6b5d1a8ccc63657d57b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6fee8bef7848ecf76f8503f71b5423fc = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_91d82b0c66c2922126beba4747c8009a = $(`<div id="html_91d82b0c66c2922126beba4747c8009a" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_6fee8bef7848ecf76f8503f71b5423fc.setContent(html_91d82b0c66c2922126beba4747c8009a);
+            
+        
+
+        marker_e5a8498b0aeb54ca7799a27210dd87ea.bindPopup(popup_6fee8bef7848ecf76f8503f71b5423fc)
+        ;
+
+        
+    
+    
+                marker_e5a8498b0aeb54ca7799a27210dd87ea.setIcon(icon_76769cf6ae10e6b5d1a8ccc63657d57b);
+            
+    
+            var marker_32e614cbfd9ad931d8d3364292d87cb6 = L.marker(
+                [28.164688, -14.221788],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_29a02bf997632d3d56963d7b1dd31dff = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6a5553040faf0c09a4fe5d34027c78a5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6889a22c9cac5e7f152e74055bdfbdde = $(`<div id="html_6889a22c9cac5e7f152e74055bdfbdde" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_6a5553040faf0c09a4fe5d34027c78a5.setContent(html_6889a22c9cac5e7f152e74055bdfbdde);
+            
+        
+
+        marker_32e614cbfd9ad931d8d3364292d87cb6.bindPopup(popup_6a5553040faf0c09a4fe5d34027c78a5)
+        ;
+
+        
+    
+    
+                marker_32e614cbfd9ad931d8d3364292d87cb6.setIcon(icon_29a02bf997632d3d56963d7b1dd31dff);
+            
+    
+            var marker_adb017cc24768445bc67ce07e8c2dea0 = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_7bdb387e3f481538ce3341e0fd7772dd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e4c5781e520f08a8eecae6e9d3b61d95 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d46c79e14e469d7891d1df846df82805 = $(`<div id="html_d46c79e14e469d7891d1df846df82805" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_e4c5781e520f08a8eecae6e9d3b61d95.setContent(html_d46c79e14e469d7891d1df846df82805);
+            
+        
+
+        marker_adb017cc24768445bc67ce07e8c2dea0.bindPopup(popup_e4c5781e520f08a8eecae6e9d3b61d95)
+        ;
+
+        
+    
+    
+                marker_adb017cc24768445bc67ce07e8c2dea0.setIcon(icon_7bdb387e3f481538ce3341e0fd7772dd);
+            
+    
+            var marker_605493fc0a993bea15eeea3d93ccd971 = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_78d72dfdb7bd0e1eb1922e9e96e769cb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0db21b555b13a72d678377bfdb455bf1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_65fb8844184926b83996c8a8a1bb484b = $(`<div id="html_65fb8844184926b83996c8a8a1bb484b" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_0db21b555b13a72d678377bfdb455bf1.setContent(html_65fb8844184926b83996c8a8a1bb484b);
+            
+        
+
+        marker_605493fc0a993bea15eeea3d93ccd971.bindPopup(popup_0db21b555b13a72d678377bfdb455bf1)
+        ;
+
+        
+    
+    
+                marker_605493fc0a993bea15eeea3d93ccd971.setIcon(icon_78d72dfdb7bd0e1eb1922e9e96e769cb);
+            
+    
+            var marker_e6a60cb9ba11cff490c7cda6e9f0fdf5 = L.marker(
+                [28.693306, -17.899323],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_043e944c626f3be5fa04a1300dcbc7d4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3574727b86439213a2884ac965e6cfbd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5346896b377160d993d64352051c7655 = $(`<div id="html_5346896b377160d993d64352051c7655" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_3574727b86439213a2884ac965e6cfbd.setContent(html_5346896b377160d993d64352051c7655);
+            
+        
+
+        marker_e6a60cb9ba11cff490c7cda6e9f0fdf5.bindPopup(popup_3574727b86439213a2884ac965e6cfbd)
+        ;
+
+        
+    
+    
+                marker_e6a60cb9ba11cff490c7cda6e9f0fdf5.setIcon(icon_043e944c626f3be5fa04a1300dcbc7d4);
+            
+    
+            var marker_35e92c433696a310c3d048efb5b03fdc = L.marker(
+                [28.294214, -16.584732],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_59fe1ab8f1ba22634538b3faef5bbffc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5a5f2725fe85855f113f08043266880e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8c8931b65391c962b53c886b0019d23b = $(`<div id="html_8c8931b65391c962b53c886b0019d23b" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_5a5f2725fe85855f113f08043266880e.setContent(html_8c8931b65391c962b53c886b0019d23b);
+            
+        
+
+        marker_35e92c433696a310c3d048efb5b03fdc.bindPopup(popup_5a5f2725fe85855f113f08043266880e)
+        ;
+
+        
+    
+    
+                marker_35e92c433696a310c3d048efb5b03fdc.setIcon(icon_59fe1ab8f1ba22634538b3faef5bbffc);
+            
+    
+            var marker_b40853fca079a3afc828501ddf831f22 = L.marker(
+                [28.316278, -16.367472],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_bb2d5451eb29b4b5badddec68c324507 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f2a01904013f4e8cb04c319e337232e9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_732837353e98f721d9176cf571140f2a = $(`<div id="html_732837353e98f721d9176cf571140f2a" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_f2a01904013f4e8cb04c319e337232e9.setContent(html_732837353e98f721d9176cf571140f2a);
+            
+        
+
+        marker_b40853fca079a3afc828501ddf831f22.bindPopup(popup_f2a01904013f4e8cb04c319e337232e9)
+        ;
+
+        
+    
+    
+                marker_b40853fca079a3afc828501ddf831f22.setIcon(icon_bb2d5451eb29b4b5badddec68c324507);
+            
+    
+            var marker_82f9ce5435dd80ac775579763e0c3203 = L.marker(
+                [28.34, -14.13],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_7e7234d54494c3ff7b197bcdf935b018 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c7b1b6276859e1039a1aef9f4b18aff8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_42de47de0417c873d4453b0cb8a29759 = $(`<div id="html_42de47de0417c873d4453b0cb8a29759" style="width: 100.0%; height: 100.0%;">Especie predicha: Crocidura canariensis</div>`)[0];
+                popup_c7b1b6276859e1039a1aef9f4b18aff8.setContent(html_42de47de0417c873d4453b0cb8a29759);
+            
+        
+
+        marker_82f9ce5435dd80ac775579763e0c3203.bindPopup(popup_c7b1b6276859e1039a1aef9f4b18aff8)
+        ;
+
+        
+    
+    
+                marker_82f9ce5435dd80ac775579763e0c3203.setIcon(icon_7e7234d54494c3ff7b197bcdf935b018);
+            
+    
+            var marker_ff4b30f1025defdfb5db6284009957a2 = L.marker(
+                [27.964811, -15.592865],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_ede9952008d368a7e5c36730245468fd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e780303c6f0c80217496ee82536c62c9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_64c8141949582fc70b7c3510c4991482 = $(`<div id="html_64c8141949582fc70b7c3510c4991482" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_e780303c6f0c80217496ee82536c62c9.setContent(html_64c8141949582fc70b7c3510c4991482);
+            
+        
+
+        marker_ff4b30f1025defdfb5db6284009957a2.bindPopup(popup_e780303c6f0c80217496ee82536c62c9)
+        ;
+
+        
+    
+    
+                marker_ff4b30f1025defdfb5db6284009957a2.setIcon(icon_ede9952008d368a7e5c36730245468fd);
+            
+    
+            var marker_d426671106ff111d10b93acc618ffd62 = L.marker(
+                [27.96105, -15.589514],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_cf964cd084fc921a24c252b9494f8c0f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_439d91a8e2432f3ad064704b7de80347 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_66c0656c5e785c418acbd15a19a3f552 = $(`<div id="html_66c0656c5e785c418acbd15a19a3f552" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_439d91a8e2432f3ad064704b7de80347.setContent(html_66c0656c5e785c418acbd15a19a3f552);
+            
+        
+
+        marker_d426671106ff111d10b93acc618ffd62.bindPopup(popup_439d91a8e2432f3ad064704b7de80347)
+        ;
+
+        
+    
+    
+                marker_d426671106ff111d10b93acc618ffd62.setIcon(icon_cf964cd084fc921a24c252b9494f8c0f);
+            
+    
+            var marker_41b4f2f9ee0b7d231b0e07a3944134ea = L.marker(
+                [27.96105, -15.589514],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_36dd07a1cff754b0ae9671597d174569 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_98efa2ba5892e183743ae59ce0562487 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_180a08911425d4d17b4e42ecb75cda77 = $(`<div id="html_180a08911425d4d17b4e42ecb75cda77" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_98efa2ba5892e183743ae59ce0562487.setContent(html_180a08911425d4d17b4e42ecb75cda77);
+            
+        
+
+        marker_41b4f2f9ee0b7d231b0e07a3944134ea.bindPopup(popup_98efa2ba5892e183743ae59ce0562487)
+        ;
+
+        
+    
+    
+                marker_41b4f2f9ee0b7d231b0e07a3944134ea.setIcon(icon_36dd07a1cff754b0ae9671597d174569);
+            
+    
+            var marker_16a6cb814b31813b14341d2598396d43 = L.marker(
+                [27.951714, -15.65189],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_0bfd82c5766a59d3a224a548cc2f5246 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0267ff3d371acfd1da85abc860e048eb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d06a9d74887b17a1dcfb981d292fa3cf = $(`<div id="html_d06a9d74887b17a1dcfb981d292fa3cf" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_0267ff3d371acfd1da85abc860e048eb.setContent(html_d06a9d74887b17a1dcfb981d292fa3cf);
+            
+        
+
+        marker_16a6cb814b31813b14341d2598396d43.bindPopup(popup_0267ff3d371acfd1da85abc860e048eb)
+        ;
+
+        
+    
+    
+                marker_16a6cb814b31813b14341d2598396d43.setIcon(icon_0bfd82c5766a59d3a224a548cc2f5246);
+            
+    
+            var marker_a081b94b3be1218773425280f5c0e49b = L.marker(
+                [28.52567, -14.005438],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_10f851dfe7a831d0cfd2be5848c93d6a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e44ac80312221dd54602008ae9aec52d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c692bb68638b2bc7b7ef0900c298e98f = $(`<div id="html_c692bb68638b2bc7b7ef0900c298e98f" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_e44ac80312221dd54602008ae9aec52d.setContent(html_c692bb68638b2bc7b7ef0900c298e98f);
+            
+        
+
+        marker_a081b94b3be1218773425280f5c0e49b.bindPopup(popup_e44ac80312221dd54602008ae9aec52d)
+        ;
+
+        
+    
+    
+                marker_a081b94b3be1218773425280f5c0e49b.setIcon(icon_10f851dfe7a831d0cfd2be5848c93d6a);
+            
+    
+            var marker_72a02852d544a3f3d43474f7c16920ba = L.marker(
+                [28.570234, -16.166279],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_64dbba5692ab5267b12cba7fb22fe6b9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1e105a317c1ffdf8117da2fa6587ee19 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_82448bb6d7bd275ef275986823656bac = $(`<div id="html_82448bb6d7bd275ef275986823656bac" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_1e105a317c1ffdf8117da2fa6587ee19.setContent(html_82448bb6d7bd275ef275986823656bac);
+            
+        
+
+        marker_72a02852d544a3f3d43474f7c16920ba.bindPopup(popup_1e105a317c1ffdf8117da2fa6587ee19)
+        ;
+
+        
+    
+    
+                marker_72a02852d544a3f3d43474f7c16920ba.setIcon(icon_64dbba5692ab5267b12cba7fb22fe6b9);
+            
+    
+            var marker_ea277b6ad2fab0668d119bdbf7d8b023 = L.marker(
+                [28.281694, -16.415364],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_bfa2c150e99b2473b3ddda28716fe6e1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e0d995fb3a1f91a16525ebff19d06376 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_be6c16c46005ae2c95ad4b376d172d8d = $(`<div id="html_be6c16c46005ae2c95ad4b376d172d8d" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_e0d995fb3a1f91a16525ebff19d06376.setContent(html_be6c16c46005ae2c95ad4b376d172d8d);
+            
+        
+
+        marker_ea277b6ad2fab0668d119bdbf7d8b023.bindPopup(popup_e0d995fb3a1f91a16525ebff19d06376)
+        ;
+
+        
+    
+    
+                marker_ea277b6ad2fab0668d119bdbf7d8b023.setIcon(icon_bfa2c150e99b2473b3ddda28716fe6e1);
+            
+    
+            var marker_d542a9e0c94435daa49299542aeeac15 = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_a27d603e68de71db33108989d82f81b0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6b52618124c32ecc6e5e94ecd8196173 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5718b09a6c33655464b5f15b3598f968 = $(`<div id="html_5718b09a6c33655464b5f15b3598f968" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_6b52618124c32ecc6e5e94ecd8196173.setContent(html_5718b09a6c33655464b5f15b3598f968);
+            
+        
+
+        marker_d542a9e0c94435daa49299542aeeac15.bindPopup(popup_6b52618124c32ecc6e5e94ecd8196173)
+        ;
+
+        
+    
+    
+                marker_d542a9e0c94435daa49299542aeeac15.setIcon(icon_a27d603e68de71db33108989d82f81b0);
+            
+    
+            var marker_df9ff45653255248fa9dca29127b4626 = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_08e34ec5259b077f021076eb895ff211 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a7269dda51802e258530731b28bd6e0c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_565778c670f5368a8ec8abf97f71f2f1 = $(`<div id="html_565778c670f5368a8ec8abf97f71f2f1" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_a7269dda51802e258530731b28bd6e0c.setContent(html_565778c670f5368a8ec8abf97f71f2f1);
+            
+        
+
+        marker_df9ff45653255248fa9dca29127b4626.bindPopup(popup_a7269dda51802e258530731b28bd6e0c)
+        ;
+
+        
+    
+    
+                marker_df9ff45653255248fa9dca29127b4626.setIcon(icon_08e34ec5259b077f021076eb895ff211);
+            
+    
+            var marker_fbf8c11208972ddde7e8e02ed42a880c = L.marker(
+                [28.328767, -16.807548],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_70d23e791fedd01ba831e200580e9d37 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5eaf8e084f22e34022f0564979cad7bb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_619bc93041f32feb49e6dc36786ea6f8 = $(`<div id="html_619bc93041f32feb49e6dc36786ea6f8" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_5eaf8e084f22e34022f0564979cad7bb.setContent(html_619bc93041f32feb49e6dc36786ea6f8);
+            
+        
+
+        marker_fbf8c11208972ddde7e8e02ed42a880c.bindPopup(popup_5eaf8e084f22e34022f0564979cad7bb)
+        ;
+
+        
+    
+    
+                marker_fbf8c11208972ddde7e8e02ed42a880c.setIcon(icon_70d23e791fedd01ba831e200580e9d37);
+            
+    
+            var marker_7080399f321c258c440cfcdb29d22f04 = L.marker(
+                [28.329357, -16.810152],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_7f7741e0e1688ff61f9d8ed310508ced = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7cdc0bb54d796184e23ac3a6b1ee2557 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_98e92d5c316d30859b246bf03bc7f7db = $(`<div id="html_98e92d5c316d30859b246bf03bc7f7db" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_7cdc0bb54d796184e23ac3a6b1ee2557.setContent(html_98e92d5c316d30859b246bf03bc7f7db);
+            
+        
+
+        marker_7080399f321c258c440cfcdb29d22f04.bindPopup(popup_7cdc0bb54d796184e23ac3a6b1ee2557)
+        ;
+
+        
+    
+    
+                marker_7080399f321c258c440cfcdb29d22f04.setIcon(icon_7f7741e0e1688ff61f9d8ed310508ced);
+            
+    
+            var marker_49390abf6f4b0cee9d95bf68f9faadb4 = L.marker(
+                [28.561757, -16.29068],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_71ccfea94c39a2b3e32869a91258f1db = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1151c39d7b482fdc60b85451e5929ded = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ad55ea5f8ba550caf7ed6be9203bbbaa = $(`<div id="html_ad55ea5f8ba550caf7ed6be9203bbbaa" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_1151c39d7b482fdc60b85451e5929ded.setContent(html_ad55ea5f8ba550caf7ed6be9203bbbaa);
+            
+        
+
+        marker_49390abf6f4b0cee9d95bf68f9faadb4.bindPopup(popup_1151c39d7b482fdc60b85451e5929ded)
+        ;
+
+        
+    
+    
+                marker_49390abf6f4b0cee9d95bf68f9faadb4.setIcon(icon_71ccfea94c39a2b3e32869a91258f1db);
+            
+    
+            var marker_e876a58031a1ddf6a8d5d33769a4953e = L.marker(
+                [28.191422, -16.668663],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_f1aa8a983fd681b7f7861c2c480148f9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4e6a7bc1c6af2338036f0febe3213abe = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_413bb3de10aa8285bf74e5686b7b5663 = $(`<div id="html_413bb3de10aa8285bf74e5686b7b5663" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_4e6a7bc1c6af2338036f0febe3213abe.setContent(html_413bb3de10aa8285bf74e5686b7b5663);
+            
+        
+
+        marker_e876a58031a1ddf6a8d5d33769a4953e.bindPopup(popup_4e6a7bc1c6af2338036f0febe3213abe)
+        ;
+
+        
+    
+    
+                marker_e876a58031a1ddf6a8d5d33769a4953e.setIcon(icon_f1aa8a983fd681b7f7861c2c480148f9);
+            
+    
+            var marker_5fa3ea2b5e1a4046cdffbe4184997693 = L.marker(
+                [28.356671, -16.514998],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_79eb4d5b4a3463f1960815f5776676bd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7847146a455d8d1eb298569adfb9fcec = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_52b88b5613d3ab68af0d856b4f5aa3f2 = $(`<div id="html_52b88b5613d3ab68af0d856b4f5aa3f2" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_7847146a455d8d1eb298569adfb9fcec.setContent(html_52b88b5613d3ab68af0d856b4f5aa3f2);
+            
+        
+
+        marker_5fa3ea2b5e1a4046cdffbe4184997693.bindPopup(popup_7847146a455d8d1eb298569adfb9fcec)
+        ;
+
+        
+    
+    
+                marker_5fa3ea2b5e1a4046cdffbe4184997693.setIcon(icon_79eb4d5b4a3463f1960815f5776676bd);
+            
+    
+            var marker_be78b5876cb48db7a7fb38a1d32a07ee = L.marker(
+                [29.00285, -13.547044],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_ad7bdf41bea6799cec4c867f77732e1f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_23ab8ef3231085b018dd2058b669637a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d7167696634bc4e6268895bf62e654ba = $(`<div id="html_d7167696634bc4e6268895bf62e654ba" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_23ab8ef3231085b018dd2058b669637a.setContent(html_d7167696634bc4e6268895bf62e654ba);
+            
+        
+
+        marker_be78b5876cb48db7a7fb38a1d32a07ee.bindPopup(popup_23ab8ef3231085b018dd2058b669637a)
+        ;
+
+        
+    
+    
+                marker_be78b5876cb48db7a7fb38a1d32a07ee.setIcon(icon_ad7bdf41bea6799cec4c867f77732e1f);
+            
+    
+            var marker_e9b356da0fa9f09366c713d7727f4482 = L.marker(
+                [28.1906, -16.6662],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_a2a314b98b9ebd71b8b77b4bbe5207c0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a4707bff7000b7a6eeb55141fa005e15 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b1bb9b3663d4712daebd1fe48eca6a05 = $(`<div id="html_b1bb9b3663d4712daebd1fe48eca6a05" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_a4707bff7000b7a6eeb55141fa005e15.setContent(html_b1bb9b3663d4712daebd1fe48eca6a05);
+            
+        
+
+        marker_e9b356da0fa9f09366c713d7727f4482.bindPopup(popup_a4707bff7000b7a6eeb55141fa005e15)
+        ;
+
+        
+    
+    
+                marker_e9b356da0fa9f09366c713d7727f4482.setIcon(icon_a2a314b98b9ebd71b8b77b4bbe5207c0);
+            
+    
+            var marker_635680d91a5b35710cfcc81fa5afce1b = L.marker(
+                [28.187075, -16.627986],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_d170bac056b458670345be44f05521dd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e63e6d2f453dfe328c14dc9bba438d1b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0024904b72329b4a7d66b81bf6f04597 = $(`<div id="html_0024904b72329b4a7d66b81bf6f04597" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_e63e6d2f453dfe328c14dc9bba438d1b.setContent(html_0024904b72329b4a7d66b81bf6f04597);
+            
+        
+
+        marker_635680d91a5b35710cfcc81fa5afce1b.bindPopup(popup_e63e6d2f453dfe328c14dc9bba438d1b)
+        ;
+
+        
+    
+    
+                marker_635680d91a5b35710cfcc81fa5afce1b.setIcon(icon_d170bac056b458670345be44f05521dd);
+            
+    
+            var marker_72a2b6dc5180dbde2061390e1f1d10c2 = L.marker(
+                [28.123896, -16.680669],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_3ba0b0935da4e94f3f4edf7f9c44ff34 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_91e7a81b6438ef8f39cfe6afaf296d2e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_15e637ddc71e07c4a57bf94c0829f421 = $(`<div id="html_15e637ddc71e07c4a57bf94c0829f421" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_91e7a81b6438ef8f39cfe6afaf296d2e.setContent(html_15e637ddc71e07c4a57bf94c0829f421);
+            
+        
+
+        marker_72a2b6dc5180dbde2061390e1f1d10c2.bindPopup(popup_91e7a81b6438ef8f39cfe6afaf296d2e)
+        ;
+
+        
+    
+    
+                marker_72a2b6dc5180dbde2061390e1f1d10c2.setIcon(icon_3ba0b0935da4e94f3f4edf7f9c44ff34);
+            
+    
+            var marker_bc7be821a39dda34fc2114a907b95502 = L.marker(
+                [28.32934, -16.810114],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_34d4ad5a8b25690b41e0b17171e6ef62 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5f432cf019bb241f45e488d230cbcfed = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d97f1b1022b45ae6d39ebc88d9d39709 = $(`<div id="html_d97f1b1022b45ae6d39ebc88d9d39709" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_5f432cf019bb241f45e488d230cbcfed.setContent(html_d97f1b1022b45ae6d39ebc88d9d39709);
+            
+        
+
+        marker_bc7be821a39dda34fc2114a907b95502.bindPopup(popup_5f432cf019bb241f45e488d230cbcfed)
+        ;
+
+        
+    
+    
+                marker_bc7be821a39dda34fc2114a907b95502.setIcon(icon_34d4ad5a8b25690b41e0b17171e6ef62);
+            
+    
+            var marker_dac50af74ecc1228a8a984d12e576123 = L.marker(
+                [28.302567, -16.573477],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_afb6d9640bd79f9157e8865e93ce8427 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_37806bee0d1ec87ef21b884c68198849 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_021f85266b567455e8b816d128d8057b = $(`<div id="html_021f85266b567455e8b816d128d8057b" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_37806bee0d1ec87ef21b884c68198849.setContent(html_021f85266b567455e8b816d128d8057b);
+            
+        
+
+        marker_dac50af74ecc1228a8a984d12e576123.bindPopup(popup_37806bee0d1ec87ef21b884c68198849)
+        ;
+
+        
+    
+    
+                marker_dac50af74ecc1228a8a984d12e576123.setIcon(icon_afb6d9640bd79f9157e8865e93ce8427);
+            
+    
+            var marker_2c0a2d5be5be3ad8bc11ce7bcdf4c31c = L.marker(
+                [27.966116, -15.584664],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_7a5e8f236e527d35287525e89db075c4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0a892c84671a92044830eb015c1b69d6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9dccb899f4034bf3276402166f339bbd = $(`<div id="html_9dccb899f4034bf3276402166f339bbd" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_0a892c84671a92044830eb015c1b69d6.setContent(html_9dccb899f4034bf3276402166f339bbd);
+            
+        
+
+        marker_2c0a2d5be5be3ad8bc11ce7bcdf4c31c.bindPopup(popup_0a892c84671a92044830eb015c1b69d6)
+        ;
+
+        
+    
+    
+                marker_2c0a2d5be5be3ad8bc11ce7bcdf4c31c.setIcon(icon_7a5e8f236e527d35287525e89db075c4);
+            
+    
+            var marker_44f9686e34eca8d06644cf942312271a = L.marker(
+                [28.554053, -16.263964],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_6b7f692105a2da848ea7d6c8309a1dc2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_192686e122b14f751545f50ec43bd132 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_77904f36ffa7cd3e6c9e0840d898ee8a = $(`<div id="html_77904f36ffa7cd3e6c9e0840d898ee8a" style="width: 100.0%; height: 100.0%;">Especie predicha: Gallotia</div>`)[0];
+                popup_192686e122b14f751545f50ec43bd132.setContent(html_77904f36ffa7cd3e6c9e0840d898ee8a);
+            
+        
+
+        marker_44f9686e34eca8d06644cf942312271a.bindPopup(popup_192686e122b14f751545f50ec43bd132)
+        ;
+
+        
+    
+    
+                marker_44f9686e34eca8d06644cf942312271a.setIcon(icon_6b7f692105a2da848ea7d6c8309a1dc2);
+            
+    
+            var marker_6fffafe16fd6471de8f6c8cbc5882c65 = L.marker(
+                [27.945585, -15.673598],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_ad950c73403cd0d2e187b7f237b7f174 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5e4e31a31e1065e1ff19bbeb36f2737b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9a4f9b9b22a953c86ff111813bbe4678 = $(`<div id="html_9a4f9b9b22a953c86ff111813bbe4678" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_5e4e31a31e1065e1ff19bbeb36f2737b.setContent(html_9a4f9b9b22a953c86ff111813bbe4678);
+            
+        
+
+        marker_6fffafe16fd6471de8f6c8cbc5882c65.bindPopup(popup_5e4e31a31e1065e1ff19bbeb36f2737b)
+        ;
+
+        
+    
+    
+                marker_6fffafe16fd6471de8f6c8cbc5882c65.setIcon(icon_ad950c73403cd0d2e187b7f237b7f174);
+            
+    
+            var marker_1a97b44f5b4b229589cff2fc525f7555 = L.marker(
+                [28.280712, -16.675032],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_f23cbcbe64b82777e6913ff9e1d725f9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1f6f80b82bf9a0a5e68fc27622ed271e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_44488b88faaf3631e92a7c3311cb7b0b = $(`<div id="html_44488b88faaf3631e92a7c3311cb7b0b" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_1f6f80b82bf9a0a5e68fc27622ed271e.setContent(html_44488b88faaf3631e92a7c3311cb7b0b);
+            
+        
+
+        marker_1a97b44f5b4b229589cff2fc525f7555.bindPopup(popup_1f6f80b82bf9a0a5e68fc27622ed271e)
+        ;
+
+        
+    
+    
+                marker_1a97b44f5b4b229589cff2fc525f7555.setIcon(icon_f23cbcbe64b82777e6913ff9e1d725f9);
+            
+    
+            var marker_7f33c513bffa163899992bfbf1889a89 = L.marker(
+                [28.329429, -16.810151],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_686dc876ca010e0d40ed7b0fef28e9ec = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_67bb427010de2fc272cb1f8ec41f5bba = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_af7632f91f7a2bc652a692d354a0c179 = $(`<div id="html_af7632f91f7a2bc652a692d354a0c179" style="width: 100.0%; height: 100.0%;">Especie predicha: Columba bollii</div>`)[0];
+                popup_67bb427010de2fc272cb1f8ec41f5bba.setContent(html_af7632f91f7a2bc652a692d354a0c179);
+            
+        
+
+        marker_7f33c513bffa163899992bfbf1889a89.bindPopup(popup_67bb427010de2fc272cb1f8ec41f5bba)
+        ;
+
+        
+    
+    
+                marker_7f33c513bffa163899992bfbf1889a89.setIcon(icon_686dc876ca010e0d40ed7b0fef28e9ec);
+            
+    
+            var marker_ec94cc58c4f7d4489a82122bed871f75 = L.marker(
+                [28.232498, -16.462583],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_102a89c5b4d1991408835e361b0d3c54 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8ee610a584e97bde5c7ed3ca9ef01631 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_191ec106726b869dc50d3948d6ec2582 = $(`<div id="html_191ec106726b869dc50d3948d6ec2582" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_8ee610a584e97bde5c7ed3ca9ef01631.setContent(html_191ec106726b869dc50d3948d6ec2582);
+            
+        
+
+        marker_ec94cc58c4f7d4489a82122bed871f75.bindPopup(popup_8ee610a584e97bde5c7ed3ca9ef01631)
+        ;
+
+        
+    
+    
+                marker_ec94cc58c4f7d4489a82122bed871f75.setIcon(icon_102a89c5b4d1991408835e361b0d3c54);
+            
+    
+            var marker_e16766eafebda61f48ef3df0a2999fbd = L.marker(
+                [27.943943, -15.669804],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_ecc2861acdd78ba15dbaadcabc9990f8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d644b0295ec85aa9a835bf320749d2f9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fd6c2f8affdfd92c57a5a673cfb06413 = $(`<div id="html_fd6c2f8affdfd92c57a5a673cfb06413" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla polatzeki</div>`)[0];
+                popup_d644b0295ec85aa9a835bf320749d2f9.setContent(html_fd6c2f8affdfd92c57a5a673cfb06413);
+            
+        
+
+        marker_e16766eafebda61f48ef3df0a2999fbd.bindPopup(popup_d644b0295ec85aa9a835bf320749d2f9)
+        ;
+
+        
+    
+    
+                marker_e16766eafebda61f48ef3df0a2999fbd.setIcon(icon_ecc2861acdd78ba15dbaadcabc9990f8);
+            
+    
+            var marker_c1d054933c82ed21f68a857b4265b018 = L.marker(
+                [28.190191, -16.665777],
+                {
+}
+            ).addTo(map_24ad18f9dfdfe0fb358d3c46e55880f5);
+        
+    
+            var icon_873b14615fcf66fca1694a235e2017f0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "leaf",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_15782da239609b6f7e3ae35962f4bc79 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d3c5bac2b4fd0b2f1444a5a508d25aeb = $(`<div id="html_d3c5bac2b4fd0b2f1444a5a508d25aeb" style="width: 100.0%; height: 100.0%;">Especie predicha: Fringilla teydea</div>`)[0];
+                popup_15782da239609b6f7e3ae35962f4bc79.setContent(html_d3c5bac2b4fd0b2f1444a5a508d25aeb);
+            
+        
+
+        marker_c1d054933c82ed21f68a857b4265b018.bindPopup(popup_15782da239609b6f7e3ae35962f4bc79)
+        ;
+
+        
+    
+    
+                marker_c1d054933c82ed21f68a857b4265b018.setIcon(icon_873b14615fcf66fca1694a235e2017f0);
+            
+</script>
+</html>
