@@ -1,0 +1,36 @@
+# Importar librerías necesarias
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, accuracy_score
+import pandas as pd
+
+# Cargar el dataset desde tu archivo CSV
+df = pd.read_csv("especies_canarias_enriquecidas_con_clima (1).csv")
+
+# Crear variable objetivo binaria: temperatura alta (1) o baja (0)
+df['temp_high'] = (df['temperature'] > df['temperature'].median()).astype(int)
+
+#Variable objetivo: 
+temp_high (1 = temperatura alta, 0 = baja)
+
+#Variables predictoras: 
+elevation, precipitation, NDVI
+
+# Eliminar filas con datos faltantes
+df_model = df[['elevation', 'precipitation', 'NDVI', 'temp_high']].dropna()
+
+# Separar variables predictoras y objetivo
+X = df_model[['elevation', 'precipitation', 'NDVI']]
+y = df_model['temp_high']
+
+# Dividir en entrenamiento y prueba
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Crear y entrenar modelo Random Forest
+clf = RandomForestClassifier(n_estimators=100, random_state=42)
+clf.fit(X_train, y_train)
+
+# Predecir y evaluar
+y_pred = clf.predict(X_test)
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("\nClassification Report:\n", classification_report(y_test, y_pred))
