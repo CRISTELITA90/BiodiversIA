@@ -1,0 +1,104 @@
+
+---
+title: "Informe de especies endémicas de Canarias"
+author: "Cristela"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rgbif)
+library(ggplot2)
+library(leaflet)
+library(dplyr)
+```
+
+## 🔍 Objetivo
+
+Este informe compara registros de varias especies endémicas canarias usando datos del Global Biodiversity Information Facility (GBIF).
+
+## 🐾 Especies seleccionadas
+
+```{r}
+especies <- c(
+  "Gallotia galloti",
+  "Gallotia stehlini",
+  "Chalcides viridanus",
+  "Tarentola angustimentalis",
+  "Pericallis hadrosoma"
+)
+```
+
+## 📥 Descarga de datos desde GBIF
+
+```{r}
+todas_ocurrencias <- data.frame()
+
+for (esp in especies) {
+  res <- occ_search(
+    scientificName = esp,
+    country = "ES",
+    hasCoordinate = TRUE,
+    limit = 2000
+  )
+
+  if (!is.null(res$data)) {
+    df <- res$data
+    df$especie <- esp
+todas_ocurrencias <- dplyr::bind_rows(todas_ocurrencias, df)
+  }
+}
+```
+
+## 🧹 Limpieza de datos
+
+```{r}
+datos_filtrados <- todas_ocurrencias %>%
+  filter(!is.na(year), !is.na(decimalLatitude), !is.na(decimalLongitude))
+```
+
+## 📊 Número total de registros por especie
+
+```{r}
+ggplot(datos_filtrados, aes(x = especie)) +
+  geom_bar(fill = "darkgreen") +
+  labs(title = "Total de registros por especie endémica",
+       x = "Especie", y = "Número de registros") +
+  theme_minimal()
+```
+
+## 📈 Registros por año
+
+```{r}
+ggplot(datos_filtrados, aes(x = year, fill = especie)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Registros por año y especie",
+       x = "Año", y = "Número de registros") +
+  theme_minimal()
+```
+
+## 🗺️ Mapa de ocurrencias
+
+```{r}
+leaflet(datos_filtrados) %>%
+  addTiles() %>%
+  addCircleMarkers(
+    ~decimalLongitude, ~decimalLatitude,
+    color = ~as.factor(especie),
+    popup = ~paste(especie, "<br>Año:", year),
+    radius = 3,
+    fillOpacity = 0.7
+  ) %>%
+  addLegend("bottomright", pal = colorFactor(rainbow(length(especies)), especies), values = ~especie) %>%
+  setView(lng = -15.5, lat = 28.1, zoom = 7)
+```
+
+## 💾 Exportar los datos a CSV
+
+```{r}
+write.csv(datos_filtrados, "registros_endemicos_canarias.csv", row.names = FALSE)
+```
+
+---
+
+**Fin del informe**
