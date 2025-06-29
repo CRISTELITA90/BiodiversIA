@@ -1,0 +1,644 @@
+# PASO 1: Cargar paquetes panda y folium para observar el numero de ocurrencias por especie y añadir mas variables
+# PASO 1.A: Asegurarse que los datos estén ordenados y limpios
+
+from pygbif import species, occurrences
+import pandas as pd
+import folium
+
+# Lista de especies
+species_list = [
+    "Gallotia",
+    "Fringilla polatzeki",
+    "Fringilla teydea",
+    "Columba bollii",
+    "Plecotus teneriffae",
+    "Crocidura canariensis"
+]
+
+# Obtener usageKey de cada especie
+taxon_keys = {}
+for name in species_list:
+    res = species.name_backbone(name=name)
+    if "usageKey" in res:
+        taxon_keys[name] = res["usageKey"]
+
+# Descargar datos de ocurrencia con coordenadas
+all_occurrences = []
+for name, key in taxon_keys.items():
+    data = occurrences.search(taxonKey=key, hasCoordinate=True, limit=200)
+    for record in data['results']:
+        if 'decimalLatitude' in record and 'decimalLongitude' in record:
+            all_occurrences.append({
+                'species': name,
+                'latitude': record['decimalLatitude'],
+                'longitude': record['decimalLongitude'],
+                'country': record.get('country', 'NA'),
+                'date': record.get('eventDate', 'NA')
+            })
+
+# Crear DataFrame
+df_all = pd.DataFrame(all_occurrences)
+
+# Visualizar en un mapa
+m = folium.Map(location=[28.3, -16.5], zoom_start=7)
+
+for _, row in df_all.iterrows():
+    folium.CircleMarker(
+        location=[row['latitude'], row['longitude']],
+        radius=4,
+        popup=f"{row['species']} ({row['date']})",
+        color='green',
+        fill=True,
+        fill_opacity=0.5
+    ).add_to(m)
+
+m
+
+# PASO 2: Guardar archivo para tenerlo en el repositorio y enriquecerlo mas adelante
+
+# Guardar el DataFrame en un archivo CSV
+df_all.to_csv("especies_canarias.csv", index=False)
+print("✅ Archivo guardado como especies_canarias.csv")
+
+# PASO 3: Crear modelo como random forest
+
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix
+
+# Cargar los datos
+df = pd.read_csv("especies_canarias.csv")
+
+# Codificar la especie como número
+df['species_code'] = df['species'].astype('category').cat.codes
+
+# Variables de entrada (latitud y longitud) y objetivo (especie)
+X = df[['latitude', 'longitude']]
+y = df['species_code']
+
+# Dividir datos en entrenamiento y prueba
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Modelo Random Forest
+clf = RandomForestClassifier(n_estimators=100, random_state=42)
+clf.fit(X_train, y_train)
+
+# Evaluar
+y_pred = clf.predict(X_test)
+
+print("Matriz de confusión:")
+print(confusion_matrix(y_test, y_pred))
+
+print("\Reporte de clasificación:")
+print(classification_report(y_test, y_pred, target_names=df['species'].astype('category').cat.categories))
+
+# Verifico los datos para saber como están escritos y si quiero agregar mas
+
+print(df.columns)
+
+
+# Descargar datos de WordClim y guardarlo como worldclim_data/
+
+# PASO 4: Añadir mas capas 
+
+import geopandas as gpd
+import pandas as pd
+import rasterio
+from rasterio.plot import show
+from rasterio.sample import sample_gen
+from shapely.geometry import Point
+
+# Cargar tu CSV de especies
+df = pd.read_csv("especies_canarias.csv")
+
+# Convertir a GeoDataFrame
+gdf = gpd.GeoDataFrame(
+    df, geometry=gpd.points_from_xy(df.longitude, df.latitude), crs="EPSG:4326"
+)
+
+# Ruta al raster de elevación o bioclim
+raster_path = "worldclim_data/wc2.1_30s_alt.tif"  # Ejemplo con elevación
+
+# Abrir raster y extraer valores
+with rasterio.open(raster_path) as src:
+    gdf["elevation"] = [
+        val[0] if val else None for val in src.sample([(x, y) for x, y in zip(gdf.geometry.x, gdf.geometry.y)])
+    ]
+
+# Guardar con elevación incluida
+gdf.drop(columns="geometry").to_csv("especies_canarias_enriquecidas.csv", index=False)
+print("✅ CSV enriquecido guardado como especies_canarias_enriquecidas.csv")
+
+# Multiples variables y capas
+
+X = df[['elevation', 'bio1', 'bio12']]
+
+# Cargar datos en tiempo real desde Google earth 
+import ee
+import pandas as pd
+
+# Autenticación solo una vez
+ee.Authenticate()
+ee.Initialize()
+
+# Cargar puntos desde CSV
+df = pd.read_csv("especies_canarias.csv")
+
+# Convertir puntos a FeatureCollection
+features = [ee.Feature(ee.Geometry.Point([lon, lat])) for lon, lat in zip(df.longitude, df.latitude)]
+fc = ee.FeatureCollection(features)
+
+# Cargar capa de elevación
+elevation = ee.Image("CGIAR/SRTM90_V4")
+
+# Extraer elevación para cada punto
+elev_values = elevation.reduceRegions(
+    collection=fc,
+    reducer=ee.Reducer.first(),
+    scale=90
+).getInfo()
+
+# Obtener elevaciones
+elev_list = [f['properties']['first'] for f in elev_values['features']]
+df['elevation'] = elev_list
+
+# Guardar
+df.to_csv("especies_canarias_enriquecidas.csv", index=False)
+
+https://developers.google.com/earth-engine/datasets?hl=es-419
+
+
+# Cargar datos
+!pip install earthengine-api geemap
+
+# Hacerte un usuario, ingresar y copiar token
+
+import ee
+ee.Authenticate()
+ee.Initialize()
+
+Una vez que autentiques correctamente en ese entorno (notebook, Google colab o local), ya no te volverá a pedir el código hasta que cambies de entorno o lo reinicies por completo. Entonces debes ingresar de nuevo y cargar de nuevo el token
+
+# Importa paquete pandas
+
+import ee
+import pandas as pd
+
+# Inicializar Earth Engine
+ee.Initialize()
+
+# Cargar tus coordenadas desde CSV (asegúrate de que tiene columnas: latitude, longitude)
+df = pd.read_csv("especies_canarias.csv")
+
+# Crear lista de puntos
+features = [ee.Feature(ee.Geometry.Point([lon, lat])) for lon, lat in zip(df.longitude, df.latitude)]
+fc = ee.FeatureCollection(features)
+
+# Imagen de elevación (90m resolución)
+elevation = ee.Image("CGIAR/SRTM90_V4")
+
+# Extraer elevación para cada punto
+elev_data = elevation.reduceRegions(
+    collection=fc,
+    reducer=ee.Reducer.mean(),
+    scale=90
+).getInfo()
+
+# Añadir al DataFrame
+df["elevation"] = [f["properties"]["mean"] if "mean" in f["properties"] else None for f in elev_data["features"]]
+
+# Guardar nuevo archivo
+df.to_csv("especies_canarias_enriquecidas.csv", index=False)
+print("✅ Archivo enriquecido guardado.")
+
+import ee
+import pandas as pd
+from datetime import datetime
+
+# Inicializar Earth Engine (debes haber autenticado antes)
+ee.Initialize()
+
+# Cargar CSV o usar DataFrame anterior
+df = pd.read_csv("especies_canarias.csv")  # Asegúrate que tenga 'latitude' y 'longitude'
+
+# Crear EE FeatureCollection con puntos
+features = [
+    ee.Feature(ee.Geometry.Point([lon, lat]), {"id": i})
+    for i, (lat, lon) in enumerate(zip(df.latitude, df.longitude))
+]
+fc = ee.FeatureCollection(features)
+
+# ELEVACIÓN
+elevation_img = ee.Image("CGIAR/SRTM90_V4")
+elev_result = elevation_img.reduceRegions(collection=fc, reducer=ee.Reducer.mean(), scale=90)
+
+# NDVI (último dato disponible de MODIS)
+ndvi_img = ee.ImageCollection("MODIS/061/MOD13Q1")\
+    .filterDate("2023-12-01", "2024-01-01")\
+    .select("NDVI")\
+    .first()
+ndvi_result = ndvi_img.reduceRegions(collection=fc, reducer=ee.Reducer.mean(), scale=250)
+
+# TEMPERATURA (media mensual reciente)
+temp_img = ee.ImageCollection("IDAHO_EPSCOR/TERRACLIMATE")\
+    .filterDate("2023-12-01", "2024-01-01")\
+    .select("tmmx")\
+    .first().divide(10)  # Divide para convertir a °C
+temp_result = temp_img.reduceRegions(collection=fc, reducer=ee.Reducer.mean(), scale=4000)
+
+# Combinar resultados
+elev_values = elev_result.getInfo()["features"]
+ndvi_values = ndvi_result.getInfo()["features"]
+temp_values = temp_result.getInfo()["features"]
+
+# Añadir al DataFrame
+df["elevation"] = [f["properties"].get("mean") for f in elev_values]
+df["NDVI"] = [f["properties"].get("mean") for f in ndvi_values]
+df["temperature_C"] = [f["properties"].get("mean") for f in temp_values]
+
+# Guardar enriquecido
+df.to_csv("especies_canarias_enriquecido.csv", index=False)
+print("✅ Archivo enriquecido con variables ambientales guardado.")
+
+
+# PASO 5: Evaluar modelo XGBoots
+
+pip install xgboost
+
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import classification_report
+from xgboost import XGBClassifier
+import pandas as pd
+
+# 1. Cargar el CSV enriquecido
+df = pd.read_csv("especies_canarias_enriquecidas.csv")
+
+# 2. Variables predictoras y objetivo
+X = df[['elevation', 'precipitation', 'temperature']]  # asegúrate que existan y sean numéricas
+y = df['species']  # especie científica
+
+# 3. Codificar las especies como números
+le = LabelEncoder()
+y_encoded = le.fit_transform(y)
+
+# 4. Dividir datos
+X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=0.2, random_state=42)
+
+# 5. Crear y entrenar modelo
+model = XGBClassifier(use_label_encoder=False, eval_metric='mlogloss')
+model.fit(X_train, y_train)
+
+# 6. Predecir
+y_pred = model.predict(X_test)
+
+# 7. Resultados
+print(classification_report(y_test, y_pred, target_names=le.classes_))
+
+
+import ee
+import pandas as pd
+
+# Inicializar Earth Engine
+ee.Initialize()
+
+# Cargar CSV con especies y coordenadas
+df = pd.read_csv("especies_canarias_enriquecidas.csv")
+
+# Crear FeatureCollection desde lat/lon
+features = [
+    ee.Feature(ee.Geometry.Point([lon, lat]), {"id": i})
+    for i, (lat, lon) in enumerate(zip(df['latitude'], df['longitude']))
+]
+fc = ee.FeatureCollection(features)
+
+# ---------- CAPAS ----------
+
+# WORLDCLIM - Imagen única
+bio = ee.Image("WORLDCLIM/V1/BIO")
+
+# Temperatura media anual (bio01), está en décimas de °C
+temp = bio.select("bio01").divide(10)
+
+# Precipitación anual (bio12)
+prec = bio.select("bio12")
+
+# MODIS NDVI promedio 2020
+ndvi = (
+    ee.ImageCollection("MODIS/061/MOD13Q1")  # Actualizada versión 061
+    .filterDate("2020-01-01", "2020-12-31")
+    .select("NDVI")
+    .mean()
+    .multiply(0.0001)
+)
+
+# ---------- EXTRAER DATOS ----------
+
+temp_vals = temp.reduceRegions(collection=fc, reducer=ee.Reducer.first(), scale=1000).getInfo()
+prec_vals = prec.reduceRegions(collection=fc, reducer=ee.Reducer.first(), scale=1000).getInfo()
+ndvi_vals = ndvi.reduceRegions(collection=fc, reducer=ee.Reducer.first(), scale=250).getInfo()
+
+# ---------- AGREGAR AL DATAFRAME ----------
+
+df['temperature'] = [f['properties'].get('first') for f in temp_vals['features']]
+df['precipitation'] = [f['properties'].get('first') for f in prec_vals['features']]
+df['NDVI'] = [f['properties'].get('first') for f in ndvi_vals['features']]
+
+# ---------- GUARDAR ----------
+
+df.to_csv("especies_canarias_enriquecidas_con_clima.csv", index=False)
+print("Archivo enriquecido guardado con éxito.")
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import classification_report, confusion_matrix
+from xgboost import XGBClassifier
+import joblib
+
+# 1. Cargar el CSV enriquecido
+df = pd.read_csv("especies_canarias_enriquecidas_con_clima.csv")
+
+# 2. Variables predictoras y objetivo
+X = df[['temperature', 'precipitation', 'NDVI', 'elevation']]
+y = df['species']  # nombres científicos
+
+# 3. Codificar etiquetas (especies)
+le = LabelEncoder()
+y_encoded = le.fit_transform(y)
+
+# 4. División de datos
+X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=0.2, random_state=42)
+
+# 5. Crear y entrenar el modelo
+model = XGBClassifier(use_label_encoder=False, eval_metric='mlogloss')
+model.fit(X_train, y_train)
+
+# 6. Evaluar el modelo
+y_pred = model.predict(X_test)
+print("Matriz de confusión:")
+print(confusion_matrix(y_test, y_pred))
+print("\nReporte de clasificación:")
+print(classification_report(y_test, y_pred, target_names=le.classes_))
+
+# 7. Guardar el modelo y el codificador
+joblib.dump(model, "modelo_xgboost_especies.pkl")
+joblib.dump(le, "label_encoder.pkl")
+
+
+# PASO 6: Hallar especie predicha:
+
+Predecir qué especie es más probable encontrar en un lugar específico
+
+nuevo_punto = pd.DataFrame({
+    'temperature': [17.5],
+    'precipitation': [300],
+    'NDVI': [0.45],
+    'elevation': [1250]
+})
+Y luego la predicción así:
+
+# Cargar modelo y codificador
+import joblib
+modelo = joblib.load("modelo_xgboost_especies.pkl")
+codificador = joblib.load("label_encoder.pkl")
+
+# Predecir especie
+pred = modelo.predict(nuevo_punto)
+especie_predicha = codificador.inverse_transform(pred)[0]
+print(f"🌿 Especie probable: {especie_predicha}")
+
+# También se puede trabajar con darle coordenadas al modelo y el modelo predecirá que especie es mas probable hallar en dcihas coordenadas que le hemos dado
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import classification_report, confusion_matrix
+from xgboost import XGBClassifier
+import joblib
+
+# 1. Cargar el CSV enriquecido /home/106b3412-9e44-4b27-9157-edd0375f41df/.local/lib/python3.11/site-packages/xgboost/training.py:183: UserWarning: [18:19:42] WARNING: /workspace/src/learner.cc:738: 
+Parameters: { "use_label_encoder" } are not used.
+
+  bst.update(dtrain, iteration=i, fobj=obj)
+Matriz de confusión:
+[[30  0  0  3  1  0]
+ [ 0  3  0  0  2  1]
+ [ 0  1 46  0  2  0]
+ [ 2  0  0 28  4  5]
+ [ 4  0  0  5 27  2]
+ [ 0  0  0  3  2  9]]
+
+Reporte de clasificación:
+                       precision    recall  f1-score   support
+
+       Columba bollii       0.83      0.88      0.86        34
+Crocidura canariensis       0.75      0.50      0.60         6
+  Fringilla polatzeki       1.00      0.94      0.97        49
+     Fringilla teydea       0.72      0.72      0.72        39
+             Gallotia       0.71      0.71      0.71        38
+  Plecotus teneriffae       0.53      0.64      0.58        14
+
+             accuracy                           0.79       180
+            macro avg       0.76      0.73      0.74       180
+         weighted avg       0.80      0.79      0.80       180
+
+['label_encoder.pkl']df = pd.read_csv("especies_canarias_enriquecidas_con_clima.csv")
+
+# 2. Variables predictoras y objetivo
+X = df[['temperature', 'precipitation', 'NDVI', 'elevation']]
+y = df['species']  # nombres científicos
+
+# 3. Codificar etiquetas (especies)
+le = LabelEncoder()
+y_encoded = le.fit_transform(y)
+
+# 4. División de datos
+X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=0.2, random_state=42)
+
+# 5. Crear y entrenar el modelo
+model = XGBClassifier(use_label_encoder=False, eval_metric='mlogloss')
+model.fit(X_train, y_train)
+
+# 6. Evaluar el modelo
+y_pred = model.predict(X_test)
+print("Matriz de confusión:")
+print(confusion_matrix(y_test, y_pred))
+print("\nReporte de clasificación:")
+print(classification_report(y_test, y_pred, target_names=le.classes_))
+
+# 7. Guardar el modelo y el codificador
+joblib.dump(model, "modelo_xgboost_especies.pkl")
+joblib.dump(le, "label_encoder.pkl")
+
+# Nuevas variables:
+
+Supongamos que tienes estos datos para una localización:
+
+python
+Copiar
+Editar
+nueva_muestra = {
+    "temperature": 17.5,      # °C promedio anual
+    "precipitation": 600.0,   # mm anuales
+    "NDVI": 0.42,             # índice de vegetación
+    "elevation": 850.0        # metros sobre el nivel del mar
+}
+Código completo para cargar modelo, encoder y predecir:
+
+python
+Copiar
+Editar
+import pandas as pd
+import joblib
+
+# 1. Cargar modelo y codificador
+modelo = joblib.load("modelo_xgboost_especies.pkl")
+label_encoder = joblib.load("label_encoder.pkl")
+
+# 2. Crear un DataFrame con la nueva muestra
+nueva_muestra_df = pd.DataFrame([nueva_muestra])
+
+# 3. Predecir
+prediccion_codificada = modelo.predict(nueva_muestra_df)[0]
+
+# 4. Decodificar resultado
+especie_predicha = label_encoder.inverse_transform([prediccion_codificada])[0]
+
+print("🔍 Especie predicha:", especie_predicha)
+
+
+import pandas as pd
+import folium
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from joblib import load
+
+# 1. Cargar y limpiar el dataset
+df = pd.read_csv("especies_canarias_enriquecidas_con_clima.csv").dropna().reset_index(drop=True)
+
+# 2. Definir variables predictoras y objetivo
+X = df[['temperature', 'precipitation', 'NDVI', 'elevation']]
+y = df['species']
+
+# 3. Codificar especies
+le = LabelEncoder()
+y_encoded = le.fit_transform(y)
+
+# 4. Dividir el dataset en train/test
+X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=0.2, random_state=42)
+
+# 5. Extraer subconjunto de df con índices correctos
+df_test = df.iloc[X_test.index].copy()
+
+# 6. Cargar modelo y predecir
+model = load("modelo_xgboost_especies.pkl")
+df_test['predicted_species'] = le.inverse_transform(model.predict(X_test))
+
+# 7. Crear mapa interactivo
+mapa = folium.Map(location=[28.5, -15.5], zoom_start=7)
+for _, row in df_test.iterrows():
+    folium.Marker(
+        location=[row['latitude'], row['longitude']],
+        popup=f"Especie predicha: {row['predicted_species']}",
+        icon=folium.Icon(color="green", icon="leaf")
+    ).add_to(mapa)
+
+# 8. Guardar mapa en HTML
+mapa.save("mapa_predicciones.html")
+
+
+import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Cargar el archivo CSV (ajusta el nombre si es diferente)
+df = pd.read_csv("especies_canarias_enriquecidas_con_clima.csv")
+
+# Seleccionar solo columnas relevantes
+df = df[['temperature', 'precipitation', 'NDVI']].dropna()
+
+# Variables predictoras y objetivo
+X = df[['temperature', 'precipitation']]
+y = df['NDVI']
+
+# Dividir los datos en entrenamiento y prueba
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Entrenar modelo Random Forest
+model = RandomForestRegressor(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+# Predicciones
+y_pred = model.predict(X_test)
+
+# Evaluación del modelo
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print("MSE:", mse)
+print("R²:", r2)
+
+
+# PASO 7: APP STREAMLIT
+
+import streamlit as st
+import pandas as pd
+import folium
+from folium.plugins import MarkerCluster
+from streamlit_folium import st_folium
+import joblib
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Configuración inicial
+st.set_page_config(page_title="BioBiodivIA - Especies Canarias", layout="wide")
+st.title("🌿 Predicción y Visualización de Especies Canarias")
+
+# Cargar datos
+@st.cache_data
+def load_data():
+    return pd.read_csv("anaconda_projects_e704d9d7-3d24-444e-af39-b803a4397808_especies_canarias_enriquecidas_con_clima.csv")
+
+df = load_data()
+
+# Mostrar tabla
+if st.checkbox("📊 Mostrar tabla de datos"):
+    st.dataframe(df)
+
+# Cargar modelo y codificador
+model = joblib.load("modelo_xgboost_especies.pkl")
+le = joblib.load("label_encoder.pkl")
+
+# Predecir
+features = ['temperature', 'precipitation', 'NDVI', 'elevation']
+df_clean = df.dropna(subset=features)
+X = df_clean[features]
+df_clean["especie_predicha"] = le.inverse_transform(model.predict(X))
+
+# Mapa interactivo
+st.subheader("🗺️ Mapa de predicciones de especies")
+m = folium.Map(location=[28.5, -15.5], zoom_start=7)
+marker_cluster = MarkerCluster().add_to(m)
+
+for _, row in df_clean.iterrows():
+    folium.Marker(
+        location=[row['latitude'], row['longitude']],
+        popup=f"{row['especie_predicha']}",
+        icon=folium.Icon(color="green", icon="leaf")
+    ).add_to(marker_cluster)
+
+st_folium(m, width=700, height=500)
+
+# Visualización adicional
+st.subheader("📈 Distribución de especies predichas")
+fig, ax = plt.subplots()
+sns.countplot(data=df_clean, x="especie_predicha", order=df_clean['especie_predicha'].value_counts().index)
+plt.xticks(rotation=45)
+st.pyplot(fig)
+
+# Créditos
+st.markdown("---")
+st.markdown("Desarrollado por Cristela para el desafío Ebbe Nielsen 2025")
+
