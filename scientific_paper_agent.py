@@ -6,13 +6,12 @@ and conservation by searching PubMed and Google Scholar.
 
 import json
 import time
-import re
 import xml.etree.ElementTree as ET
 from datetime import datetime
-from typing import Optional
 
 import anthropic
 import requests
+from anthropic import RateLimitError, APIStatusError
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -21,6 +20,11 @@ import requests
 NCBI_BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 NCBI_EMAIL = "biodiversia@research.org"   # required by NCBI for polite usage
 MODEL = "claude-sonnet-4-6"
+
+# Token budget per call – keeps each request well under the 30k/min limit
+MAX_TOKENS_PER_CALL = 3000
+# Minimum seconds to wait between consecutive Claude API calls
+MIN_CALL_INTERVAL = 10
 
 # ---------------------------------------------------------------------------
 # PubMed helpers (NCBI E-utilities – no API key needed)
@@ -34,7 +38,7 @@ def _ncbi_get(endpoint: str, params: dict) -> requests.Response:
     return requests.get(f"{NCBI_BASE}/{endpoint}", params=params, timeout=20)
 
 
-def search_pubmed(query: str, max_results: int = 20) -> dict:
+def search_pubmed(query: str, max_results: int = 8) -> dict:
     """
     Search PubMed and return a list of PMIDs with basic metadata.
 
@@ -75,7 +79,7 @@ def fetch_pubmed_abstracts(pmids: list[str]) -> list[dict]:
     if not pmids:
         return []
 
-    ids = ",".join(pmids[:10])  # max 10 per call to keep responses manageable
+    ids = ",".join(pmids[:6])  # cap at 6 to keep tool-result tokens low
     r = _ncbi_get("efetch.fcgi", {
         "db": "pubmed",
         "id": ids,
@@ -127,8 +131,8 @@ def fetch_pubmed_abstracts(pmids: list[str]) -> list[dict]:
         articles.append({
             "pmid": pmid,
             "title": title,
-            "abstract": abstract[:1500],   # cap to keep context manageable
-            "authors": authors[:6],         # first 6 authors
+            "abstract": abstract[:700],    # hard cap to limit token usage
+            "authors": authors[:4],
             "journal": journal,
             "year": year,
             "doi": doi,
@@ -141,7 +145,7 @@ def fetch_pubmed_abstracts(pmids: list[str]) -> list[dict]:
 # Google Scholar helper (via scholarly – no API key needed)
 # ---------------------------------------------------------------------------
 
-def search_google_scholar(query: str, max_results: int = 10) -> list[dict]:
+def search_google_scholar(query: str, max_results: int = 5) -> list[dict]:
     """
     Search Google Scholar using the scholarly library.
 
@@ -163,9 +167,9 @@ def search_google_scholar(query: str, max_results: int = 10) -> list[dict]:
             bib = pub.get("bib", {})
             results.append({
                 "title": bib.get("title", "N/A"),
-                "authors": bib.get("author", [])[:6],
+                "authors": bib.get("author", [])[:4],
                 "year": bib.get("pub_year", "N/A"),
-                "abstract": bib.get("abstract", "Abstract not available.")[:1200],
+                "abstract": bib.get("abstract", "Abstract not available.")[:600],
                 "cited_by": pub.get("num_citations", 0),
                 "url": pub.get("pub_url", "N/A"),
                 "journal": bib.get("venue", bib.get("journal", "N/A")),
@@ -203,8 +207,8 @@ TOOLS = [
                 },
                 "max_results": {
                     "type": "integer",
-                    "description": "Maximum number of results (default 20, max 50).",
-                    "default": 20,
+                    "description": "Maximum number of results (default 8, max 15).",
+                    "default": 8,
                 },
             },
             "required": ["query"],
@@ -245,8 +249,8 @@ TOOLS = [
                 },
                 "max_results": {
                     "type": "integer",
-                    "description": "Maximum number of results (default 10).",
-                    "default": 10,
+                    "description": "Maximum number of results (default 5, max 8).",
+                    "default": 5,
                 },
             },
             "required": ["query"],
@@ -296,7 +300,7 @@ TOOLS = [
 def dispatch_tool(name: str, inputs: dict, paper_sections: dict) -> str:
     """Execute a tool and return its result as a JSON string."""
     if name == "search_pubmed":
-        result = search_pubmed(inputs["query"], inputs.get("max_results", 20))
+        result = search_pubmed(inputs["query"], min(inputs.get("max_results", 8), 15))
         return json.dumps(result, ensure_ascii=False)
 
     elif name == "fetch_pubmed_abstracts":
@@ -304,7 +308,7 @@ def dispatch_tool(name: str, inputs: dict, paper_sections: dict) -> str:
         return json.dumps(result, ensure_ascii=False)
 
     elif name == "search_google_scholar":
-        result = search_google_scholar(inputs["query"], inputs.get("max_results", 10))
+        result = search_google_scholar(inputs["query"], min(inputs.get("max_results", 5), 8))
         return json.dumps(result, ensure_ascii=False)
 
     elif name == "write_paper_section":
@@ -321,78 +325,29 @@ def dispatch_tool(name: str, inputs: dict, paper_sections: dict) -> str:
 # ---------------------------------------------------------------------------
 
 SYSTEM_PROMPT = """\
-You are a senior scientific researcher and scientific writer specializing in \
-marine ecology, biodiversity, and conservation biology. Your task is to draft a \
-complete, publication-ready scientific paper suitable for submission to a Q1 \
-journal (e.g., *Nature Communications*, *Global Change Biology*, \
-*Marine Ecology Progress Series*, *Conservation Biology*, \
-*Biological Conservation*, or *Frontiers in Marine Science*).
+You are a senior marine ecologist and scientific writer. Draft a complete Q1 journal paper \
+(suitable for *Global Change Biology*, *Biological Conservation*, or *Frontiers in Marine Science*).
 
-## Research and Writing Process
+WORKFLOW – follow exactly in this order:
+1. search_pubmed (2-3 targeted queries, max_results=8 each)
+2. fetch_pubmed_abstracts (top 5-6 PMIDs per search)
+3. search_google_scholar (1-2 queries, max_results=5)
+4. write_paper_section for each section IN ORDER:
+   title → abstract → keywords → introduction → methods → results → discussion → conclusions → references
 
-**Phase 1 – Literature Search (do this first)**
-1. Search PubMed with precise queries (use MeSH terms, boolean operators) targeting:
-   - Core topic (marine biodiversity / ecology / conservation)
-   - Key subtopics: species richness, habitat loss, climate change impacts, MPAs,
-     coral reefs, seagrass, kelp forests, deep-sea ecosystems, etc.
-2. Fetch abstracts for the 8-15 most relevant PMIDs.
-3. Search Google Scholar for complementary papers (broader coverage).
-4. Identify key themes, knowledge gaps, methodological approaches, and recent findings.
+PAPER SECTIONS:
+- title: specific, ≤18 words
+- abstract: ≤250 words, structured (Background / Methods / Results / Conclusions)
+- keywords: 6 terms
+- introduction: 500-700 words, cite ≥8 real papers found above, funnel structure
+- methods: 400-600 words, systematic review methodology, inclusion criteria
+- results: 500-700 words, synthesized findings with quantitative data from papers
+- discussion: 600-800 words, interpretation, limitations, conservation policy
+- conclusions: 120-180 words, main findings + future directions
+- references: full APA list of ALL cited papers (only papers found via search tools)
 
-**Phase 2 – Paper Drafting**
-Write each section by calling `write_paper_section`. Follow Q1 journal standards:
-
-### Paper Structure
-
-**TITLE** – Informative, specific, ≤ 20 words. Include main topic, geographic scope,
-and key variable/finding.
-
-**ABSTRACT** (≤ 300 words, structured):
-  - Background: context and knowledge gap
-  - Methods: approach
-  - Results: key quantitative findings (use real data from reviewed papers)
-  - Conclusions: significance and implications
-
-**KEYWORDS** – 6-8 terms, from controlled vocabularies where possible.
-
-**INTRODUCTION** (600-900 words):
-  - Broad context → specific problem (funnel structure)
-  - Cite ≥ 10 references with inline citations (Author, Year)
-  - Clear statement of objectives and hypotheses
-
-**MATERIALS AND METHODS** (500-800 words):
-  - Study area or data sources
-  - Literature review/meta-analysis methodology (PRISMA-inspired)
-  - Statistical or analytical approaches
-  - Reproducibility and data availability statement
-
-**RESULTS** (600-900 words):
-  - Synthesized findings organized by sub-theme
-  - Data tables or figure descriptions
-  - Statistical summaries extracted from reviewed literature
-
-**DISCUSSION** (700-1000 words):
-  - Interpretation of results in relation to existing literature
-  - Mechanisms and ecological explanations
-  - Limitations
-  - Conservation implications and policy recommendations
-
-**CONCLUSIONS** (150-250 words):
-  - Summary of main findings
-  - Future research directions
-
-**REFERENCES** – Full APA 7th / Vancouver style list of all cited papers.
-  Use actual papers you found via the search tools.
-
-## Quality Standards
-- Write in formal scientific English (passive voice where appropriate, precise terminology)
-- Every factual claim must be supported by a citation from your literature search
-- Use quantitative data from the reviewed papers wherever possible
-- Maintain consistent tense: past for methods/results, present for established facts
-- Target word count: 4,000-6,000 words (excluding references)
-- Structure citations as: (Author et al., Year) or Author et al. (Year) in-text
-
-Begin by performing a thorough literature search, then draft all sections sequentially.\
+STYLE: formal scientific English, inline citations as (Author et al., Year),
+past tense for methods/results, present for established facts.\
 """
 
 
@@ -435,6 +390,46 @@ def run_paper_agent(
         else:
             print(msg)
 
+    def _call_claude(msgs: list) -> anthropic.types.Message:
+        """Call Claude with exponential backoff on 429 rate-limit errors."""
+        wait = 20  # initial wait in seconds
+        for attempt in range(6):
+            try:
+                return client.messages.create(
+                    model=MODEL,
+                    max_tokens=MAX_TOKENS_PER_CALL,
+                    system=SYSTEM_PROMPT,
+                    tools=TOOLS,
+                    messages=msgs,
+                )
+            except RateLimitError:
+                if attempt == 5:
+                    raise
+                _log(f"  [Rate limit] Waiting {wait}s before retry {attempt + 1}/5...")
+                time.sleep(wait)
+                wait = min(wait * 2, 120)
+            except APIStatusError as e:
+                if e.status_code == 529:  # overloaded
+                    if attempt == 5:
+                        raise
+                    _log(f"  [API overloaded] Waiting {wait}s...")
+                    time.sleep(wait)
+                    wait = min(wait * 2, 120)
+                else:
+                    raise
+
+    _last_call_time = [0.0]  # mutable reference to allow mutation in closure
+
+    def _rate_limited_call(msgs: list) -> anthropic.types.Message:
+        elapsed = time.time() - _last_call_time[0]
+        if elapsed < MIN_CALL_INTERVAL:
+            gap = MIN_CALL_INTERVAL - elapsed
+            _log(f"  [Pacing] Waiting {gap:.1f}s to respect rate limit...")
+            time.sleep(gap)
+        result = _call_claude(msgs)
+        _last_call_time[0] = time.time()
+        return result
+
     iteration = 0
     max_iterations = 40   # safety cap
 
@@ -442,13 +437,7 @@ def run_paper_agent(
         iteration += 1
         _log(f"[Iteration {iteration}] Calling Claude...")
 
-        response = client.messages.create(
-            model=MODEL,
-            max_tokens=8192,
-            system=SYSTEM_PROMPT,
-            tools=TOOLS,
-            messages=messages,
-        )
+        response = _rate_limited_call(messages)
 
         # Append assistant message
         messages.append({"role": "assistant", "content": response.content})
