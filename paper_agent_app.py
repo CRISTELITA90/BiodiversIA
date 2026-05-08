@@ -18,7 +18,13 @@ st.set_page_config(
 
 st.title("🌊 BiodiversIA – Generador de Paper Científico Q1")
 st.caption("Biodiversidad marina · Ecología · Conservación")
-st.info("✅ **Modo ahorro de API activado** – genera el paper completo en **una sola llamada**. No gasta tokens extra.", icon="💡")
+st.info(
+    "**Cómo funciona:**  \n"
+    "1️⃣ Busca los **15 papers más relevantes en PubMed** *(sin usar API de Claude)*  \n"
+    "2️⃣ Busca los **10 más relevantes en Google Scholar** *(sin usar API de Claude)*  \n"
+    "3️⃣ Con esos 25 papers hace **una sola llamada a Claude** y genera el paper Q1 completo",
+    icon="💡"
+)
 
 st.markdown("---")
 
@@ -85,7 +91,7 @@ if generar:
         try:
             result_c["ok"] = run_paper_agent(
                 topic=topic,
-                search_literature=False,   # siempre sin búsqueda → 1 sola llamada API
+                search_literature=True,   # busca PubMed+Scholar (sin Claude), luego 1 llamada
                 progress_callback=_log,
             )
         except Exception as e:
