@@ -1,428 +1,172 @@
 """
-BiodiversIA – Scientific Paper Agent UI
-Streamlit interface for the AI scientific paper drafting agent.
+BiodiversIA – Scientific Paper Agent UI (simplificada)
 """
 
 import os
 import threading
 import queue
-import time
 from datetime import datetime
 
 import streamlit as st
-
 from scientific_paper_agent import run_paper_agent
-
-# ---------------------------------------------------------------------------
-# Page config
-# ---------------------------------------------------------------------------
 
 st.set_page_config(
     page_title="BiodiversIA – Paper Agent",
     page_icon="🌊",
-    layout="wide",
-    initial_sidebar_state="expanded",
+    layout="centered",
 )
 
-# ---------------------------------------------------------------------------
-# CSS
-# ---------------------------------------------------------------------------
-
-st.markdown("""
-<style>
-    .main-header {
-        background: linear-gradient(135deg, #0a3d62 0%, #1e6091 50%, #2980b9 100%);
-        padding: 2rem;
-        border-radius: 12px;
-        color: white;
-        margin-bottom: 2rem;
-        text-align: center;
-    }
-    .main-header h1 { font-size: 2.2rem; margin: 0; }
-    .main-header p  { font-size: 1rem; margin: 0.5rem 0 0; opacity: 0.9; }
-
-    .section-card {
-        border: 1px solid #e0e0e0;
-        border-radius: 10px;
-        padding: 1.2rem;
-        margin-bottom: 1rem;
-        background: #fafafa;
-    }
-    .section-card h3 { color: #1e6091; margin-top: 0; }
-
-    .status-box {
-        background: #f0f8ff;
-        border-left: 4px solid #2980b9;
-        padding: 0.8rem 1rem;
-        border-radius: 4px;
-        font-family: monospace;
-        font-size: 0.82rem;
-        max-height: 260px;
-        overflow-y: auto;
-    }
-    .metric-card {
-        background: linear-gradient(135deg, #1e6091, #2980b9);
-        color: white;
-        padding: 1rem;
-        border-radius: 8px;
-        text-align: center;
-    }
-    .metric-card .number { font-size: 2rem; font-weight: bold; }
-    .metric-card .label  { font-size: 0.85rem; opacity: 0.9; }
-</style>
-""", unsafe_allow_html=True)
-
-# ---------------------------------------------------------------------------
-# Header
-# ---------------------------------------------------------------------------
-
-st.markdown("""
-<div class="main-header">
-    <h1>🌊 BiodiversIA – Scientific Paper Agent</h1>
-    <p>AI-powered Q1 scientific paper drafting on marine biodiversity, ecology & conservation<br>
-    Literature sourced from <strong>PubMed</strong> &amp; <strong>Google Scholar</strong></p>
-</div>
-""", unsafe_allow_html=True)
-
-# ---------------------------------------------------------------------------
-# Sidebar configuration
-# ---------------------------------------------------------------------------
-
-with st.sidebar:
-    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Biodiversity.jpg/320px-Biodiversity.jpg",
-             use_container_width=True, caption="Marine Biodiversity")
-
-    st.header("⚙️ Configuration")
-
-    predefined_topics = {
-        "Custom topic...": "",
-        "Climate change & coral reefs": (
-            "Effects of climate change on coral reef biodiversity and resilience: "
-            "a systematic review of bleaching events, species loss, and conservation strategies"
-        ),
-        "Marine Protected Areas efficacy": (
-            "Effectiveness of Marine Protected Areas in conserving biodiversity "
-            "and supporting ecosystem recovery in the context of global change"
-        ),
-        "Deep-sea biodiversity threats": (
-            "Biodiversity of deep-sea ecosystems under threat: impacts of deep-sea mining, "
-            "trawling, and climate change on benthic communities"
-        ),
-        "Seagrass & blue carbon": (
-            "Seagrass meadows as biodiversity hotspots and blue carbon sinks: "
-            "global decline, conservation priorities, and restoration approaches"
-        ),
-        "Ocean deoxygenation impacts": (
-            "Ocean deoxygenation and its cascading effects on marine biodiversity: "
-            "mechanisms, projections, and conservation implications"
-        ),
-        "Kelp forest ecology": (
-            "Kelp forest ecosystem dynamics, biodiversity loss, and restoration "
-            "under warming ocean temperatures and ocean acidification"
-        ),
-        "Coastal fisheries & ecosystems": (
-            "Overfishing and habitat degradation effects on coastal marine biodiversity: "
-            "ecosystem-based management and conservation approaches"
-        ),
-    }
-
-    topic_choice = st.selectbox(
-        "Select a topic or enter your own:",
-        list(predefined_topics.keys()),
-    )
-
-    if topic_choice == "Custom topic...":
-        topic = st.text_area(
-            "Research topic",
-            height=120,
-            placeholder=(
-                "E.g.: 'Impact of ocean acidification on mollusc diversity "
-                "in Mediterranean coastal ecosystems: mechanisms and conservation responses'"
-            ),
-        )
-    else:
-        topic = predefined_topics[topic_choice]
-        st.text_area("Topic (editable):", value=topic, height=100, key="topic_display")
-        topic = st.session_state.get("topic_display", topic)
-
-    st.markdown("---")
-    st.header("⚡ Mode")
-    search_mode = st.radio(
-        "Literature search",
-        options=["Claude knowledge only (recommended – saves API tokens)",
-                 "Search PubMed + Scholar first (uses more tokens)"],
-        index=0,
-        help=(
-            "Free-tier accounts have a 30k tokens/min limit. "
-            "'Claude knowledge only' skips live searches and writes directly from "
-            "Claude's training data – fast, reliable, and API-safe. "
-            "The paper will still cite real, published papers."
-        ),
-    )
-    use_search = search_mode.startswith("Search")
-
-    st.markdown("---")
-    st.header("📋 Journal Target")
-    journal = st.selectbox(
-        "Target journal style",
-        [
-            "Global Change Biology (IF ~11)",
-            "Nature Communications (IF ~17)",
-            "Marine Ecology Progress Series (IF ~3)",
-            "Biological Conservation (IF ~7)",
-            "Frontiers in Marine Science (IF ~4)",
-            "Conservation Biology (IF ~5)",
-        ],
-    )
-
-    st.markdown("---")
-    st.header("🔑 API Key")
-    api_key = st.text_input(
-        "Anthropic API Key",
-        type="password",
-        help="Required to run the agent. Get yours at console.anthropic.com",
-    )
-    st.caption("Key is used only for this session and never stored.")
-
-    st.markdown("---")
-    st.markdown(
-        "**Author:** Cristela Yosmary Moreno García  \n"
-        "📍 Canarias · Bioinformática & IA aplicada a conservación"
-    )
-
-# ---------------------------------------------------------------------------
-# Session state
-# ---------------------------------------------------------------------------
-
-if "paper_result" not in st.session_state:
-    st.session_state.paper_result = None
-if "log_messages" not in st.session_state:
-    st.session_state.log_messages = []
-if "running" not in st.session_state:
-    st.session_state.running = False
-if "use_search" not in st.session_state:
-    st.session_state.use_search = False
-st.session_state.use_search = use_search
-
-# ---------------------------------------------------------------------------
-# Main content
-# ---------------------------------------------------------------------------
-
-col1, col2 = st.columns([2, 1])
-
-with col1:
-    st.subheader("📝 Topic to research")
-    if topic:
-        st.info(topic)
-    else:
-        st.warning("Please select or enter a research topic in the sidebar.")
-
-with col2:
-    st.subheader("🎯 Selected journal")
-    st.success(journal)
+st.title("🌊 BiodiversIA – Generador de Paper Científico Q1")
+st.caption("Biodiversidad marina · Ecología · Conservación")
+st.info("✅ **Modo ahorro de API activado** – genera el paper completo en **una sola llamada**. No gasta tokens extra.", icon="💡")
 
 st.markdown("---")
 
-# ---------------------------------------------------------------------------
-# Run button
-# ---------------------------------------------------------------------------
+# --- API Key ---
+api_key = st.text_input("🔑 Anthropic API Key", type="password",
+                        placeholder="sk-ant-...")
 
-run_col, info_col = st.columns([1, 2])
+# --- Tema ---
+TEMAS = {
+    "Selecciona un tema predefinido…": "",
+    "Arrecifes de coral y cambio climático": "Effects of climate change on coral reef biodiversity: bleaching, species loss and conservation strategies",
+    "Áreas Marinas Protegidas": "Effectiveness of Marine Protected Areas in conserving marine biodiversity under global change",
+    "Biodiversidad de aguas profundas": "Deep-sea biodiversity under threat: impacts of mining, trawling and climate change on benthic communities",
+    "Praderas de posidonia y carbono azul": "Seagrass meadows as biodiversity hotspots and blue carbon sinks: decline, conservation and restoration",
+    "Desoxigenación del océano": "Ocean deoxygenation effects on marine biodiversity: mechanisms, projections and conservation implications",
+    "Bosques de kelp": "Kelp forest biodiversity loss and restoration under ocean warming and acidification",
+    "Pesca y ecosistemas costeros": "Overfishing and habitat degradation effects on coastal marine biodiversity and ecosystem-based management",
+}
 
-with run_col:
-    run_btn = st.button(
-        "🚀 Generate Scientific Paper",
-        type="primary",
-        disabled=st.session_state.running or not topic or not api_key,
-        use_container_width=True,
-    )
+col1, col2 = st.columns([1, 1])
+with col1:
+    eleccion = st.selectbox("Tema predefinido", list(TEMAS.keys()))
+with col2:
+    journal = st.selectbox("Revista objetivo", [
+        "Global Change Biology",
+        "Biological Conservation",
+        "Frontiers in Marine Science",
+        "Marine Ecology Progress Series",
+        "Nature Communications",
+    ])
 
-with info_col:
-    if st.session_state.get("use_search"):
-        st.markdown("""
-        **Mode: Search + Draft**
-        1. Search PubMed (2 queries × 5 results)
-        2. Fetch abstracts of top papers
-        3. Search Google Scholar (4 results)
-        4. Draft each section independently
-        5. Compile full manuscript
-        ⚠️ May hit rate limits on free tier.
-        """)
-    else:
-        st.markdown("""
-        **Mode: Draft only (API-safe)**
-        1. Skip live searches entirely
-        2. Draft each section in its own call
-        3. Claude cites real papers from training data
-        4. Compile full Q1 manuscript
-        ✅ Safe for free-tier API limits.
-        """)
+topic_default = TEMAS.get(eleccion, "")
+topic = st.text_area("✏️ Tema del paper (editable)", value=topic_default, height=90,
+                     placeholder="Describe el tema del paper en inglés…")
 
-# ---------------------------------------------------------------------------
-# Agent execution
-# ---------------------------------------------------------------------------
+st.markdown("---")
 
-if run_btn:
+# --- Botón ---
+generar = st.button("🚀 Generar Paper Q1", type="primary",
+                    disabled=not api_key or not topic)
+
+if not api_key:
+    st.warning("Introduce tu API Key para continuar.")
+elif not topic:
+    st.warning("Selecciona o escribe un tema.")
+
+# --- Ejecución ---
+if "resultado" not in st.session_state:
+    st.session_state.resultado = None
+
+if generar:
     os.environ["ANTHROPIC_API_KEY"] = api_key
-    st.session_state.paper_result = None
-    st.session_state.log_messages = []
-    st.session_state.running = True
+    st.session_state.resultado = None
 
-    log_queue: queue.Queue = queue.Queue()
-    result_container: dict = {}
+    log_box  = st.empty()
+    progress = st.progress(0)
+    logs     = []
+    q        = queue.Queue()
+    result_c = {}
 
     def _run():
-        def _log(msg):
-            log_queue.put(msg)
-
+        def _log(m):
+            q.put(m)
         try:
-            result = run_paper_agent(
-            topic=topic,
-            search_literature=st.session_state.use_search,
-            progress_callback=_log,
-        )
-            result_container["result"] = result
+            result_c["ok"] = run_paper_agent(
+                topic=topic,
+                search_literature=False,   # siempre sin búsqueda → 1 sola llamada API
+                progress_callback=_log,
+            )
         except Exception as e:
-            result_container["error"] = str(e)
+            result_c["err"] = str(e)
         finally:
-            log_queue.put("__DONE__")
+            q.put("__DONE__")
 
-    thread = threading.Thread(target=_run, daemon=True)
-    thread.start()
+    threading.Thread(target=_run, daemon=True).start()
 
-    # Live progress display
-    st.subheader("⚙️ Agent progress")
-    log_placeholder = st.empty()
-    progress_bar = st.progress(0)
-
-    sections_done = 0
-    total_sections = 9
-    logs = []
+    steps = ["Conectando con Claude…", "Redactando introducción…",
+             "Redactando métodos y resultados…", "Redactando discusión…",
+             "Compilando paper…"]
+    step_i = 0
 
     while True:
         try:
-            msg = log_queue.get(timeout=0.5)
+            msg = q.get(timeout=0.5)
         except queue.Empty:
-            log_placeholder.markdown(
-                '<div class="status-box">' +
-                "<br>".join(f"▸ {m}" for m in logs[-30:]) +
-                "</div>",
-                unsafe_allow_html=True,
-            )
-            time.sleep(0.2)
+            if step_i < len(steps):
+                log_box.info(f"⏳ {steps[min(step_i, len(steps)-1)]}")
             continue
 
         if msg == "__DONE__":
             break
-
         logs.append(msg)
-        if "write_paper_section" in msg and "Tool:" in msg:
-            sections_done += 1
-            progress_bar.progress(min(sections_done / total_sections, 1.0))
+        step_i += 1
+        progress.progress(min(step_i * 15, 90))
 
-        log_placeholder.markdown(
-            '<div class="status-box">' +
-            "<br>".join(f"▸ {m}" for m in logs[-30:]) +
-            "</div>",
-            unsafe_allow_html=True,
-        )
+    progress.progress(100)
 
-    progress_bar.progress(1.0)
+    if "err" in result_c:
+        st.error(f"Error: {result_c['err']}")
+    else:
+        st.session_state.resultado = result_c["ok"]
+        st.rerun()
 
-    if "error" in result_container:
-        st.error(f"Agent error: {result_container['error']}")
-        st.session_state.running = False
-        st.stop()
+# --- Resultado ---
+if st.session_state.resultado:
+    r = st.session_state.resultado
+    sections = r["sections"]
+    full     = r["full_paper"]
 
-    st.session_state.paper_result = result_container["result"]
-    st.session_state.running = False
-    st.rerun()
+    st.success("✅ Paper generado correctamente")
 
-# ---------------------------------------------------------------------------
-# Display result
-# ---------------------------------------------------------------------------
-
-if st.session_state.paper_result:
-    result = st.session_state.paper_result
-    sections = result["sections"]
-    full_paper = result["full_paper"]
-
-    st.success("✅ Paper successfully generated!")
-
-    # Metrics
-    word_count = len(full_paper.split())
-    ref_count = full_paper.count("(20") + full_paper.count("(19")  # rough estimate
-    m1, m2, m3, m4 = st.columns(4)
-    with m1:
-        st.markdown(f'<div class="metric-card"><div class="number">{len(sections)}</div><div class="label">Sections written</div></div>', unsafe_allow_html=True)
-    with m2:
-        st.markdown(f'<div class="metric-card"><div class="number">{word_count:,}</div><div class="label">Total words</div></div>', unsafe_allow_html=True)
-    with m3:
-        st.markdown(f'<div class="metric-card"><div class="number">{ref_count}</div><div class="label">Approx. citations</div></div>', unsafe_allow_html=True)
-    with m4:
-        st.markdown(f'<div class="metric-card"><div class="number">Q1</div><div class="label">Target quality</div></div>', unsafe_allow_html=True)
+    words = len(full.split())
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Secciones", len(sections))
+    c2.metric("Palabras", f"{words:,}")
+    c3.metric("Calidad", "Q1")
 
     st.markdown("---")
 
-    # Download buttons
-    dl_col1, dl_col2 = st.columns(2)
-    with dl_col1:
-        st.download_button(
-            label="⬇️ Download paper (.md)",
-            data=full_paper.encode("utf-8"),
-            file_name=f"scientific_paper_{datetime.now().strftime('%Y%m%d_%H%M')}.md",
-            mime="text/markdown",
-            use_container_width=True,
-        )
-    with dl_col2:
-        # Plain text version
-        plain = full_paper.replace("**", "").replace("*", "").replace("#", "").replace("`", "")
-        st.download_button(
-            label="⬇️ Download paper (.txt)",
-            data=plain.encode("utf-8"),
-            file_name=f"scientific_paper_{datetime.now().strftime('%Y%m%d_%H%M')}.txt",
-            mime="text/plain",
-            use_container_width=True,
-        )
+    # Descargas
+    d1, d2 = st.columns(2)
+    with d1:
+        st.download_button("⬇️ Descargar .md", full.encode(),
+                           f"paper_{datetime.now().strftime('%Y%m%d_%H%M')}.md",
+                           "text/markdown", use_container_width=True)
+    with d2:
+        plain = full.replace("**","").replace("*","").replace("#","")
+        st.download_button("⬇️ Descargar .txt", plain.encode(),
+                           f"paper_{datetime.now().strftime('%Y%m%d_%H%M')}.txt",
+                           "text/plain", use_container_width=True)
 
     st.markdown("---")
 
-    # Section viewer
-    section_order = [
-        "title", "abstract", "keywords", "introduction",
-        "methods", "results", "discussion", "conclusions", "references",
-    ]
-    section_labels = {
-        "title": "📌 Title",
-        "abstract": "📄 Abstract",
-        "keywords": "🔑 Keywords",
-        "introduction": "1️⃣ Introduction",
-        "methods": "2️⃣ Materials & Methods",
-        "results": "3️⃣ Results",
-        "discussion": "4️⃣ Discussion",
-        "conclusions": "5️⃣ Conclusions",
-        "references": "📚 References",
-    }
+    # Tabs por sección
+    orden  = ["title","abstract","keywords","introduction","methods",
+               "results","discussion","conclusions","references"]
+    labels = ["📌 Título","📄 Abstract","🔑 Keywords","1️⃣ Introducción",
+               "2️⃣ Métodos","3️⃣ Resultados","4️⃣ Discusión","5️⃣ Conclusiones","📚 Referencias"]
 
-    tabs = st.tabs([section_labels[s] for s in section_order if s in sections])
-    visible = [s for s in section_order if s in sections]
+    visibles = [(l, s) for l, s in zip(labels, orden) if s in sections]
+    if visibles:
+        tabs = st.tabs([l for l, _ in visibles])
+        for tab, (_, sec) in zip(tabs, visibles):
+            with tab:
+                st.markdown(sections[sec])
 
-    for tab, sec in zip(tabs, visible):
-        with tab:
-            st.markdown(sections[sec])
-
-    st.markdown("---")
-    with st.expander("📄 Full paper (raw markdown)", expanded=False):
-        st.text_area("", full_paper, height=600)
-
-# ---------------------------------------------------------------------------
-# Footer
-# ---------------------------------------------------------------------------
+    with st.expander("📄 Ver paper completo (markdown)"):
+        st.text_area("", full, height=500)
 
 st.markdown("---")
-st.markdown(
-    "<small>BiodiversIA Scientific Paper Agent · "
-    "Powered by Claude (Anthropic) · PubMed NCBI E-utilities · Google Scholar · "
-    "Developed by Cristela Yosmary Moreno García</small>",
-    unsafe_allow_html=True,
-)
+st.caption("BiodiversIA · Cristela Yosmary Moreno García · Canarias")
