@@ -146,6 +146,22 @@ with st.sidebar:
         topic = st.session_state.get("topic_display", topic)
 
     st.markdown("---")
+    st.header("⚡ Mode")
+    search_mode = st.radio(
+        "Literature search",
+        options=["Claude knowledge only (recommended – saves API tokens)",
+                 "Search PubMed + Scholar first (uses more tokens)"],
+        index=0,
+        help=(
+            "Free-tier accounts have a 30k tokens/min limit. "
+            "'Claude knowledge only' skips live searches and writes directly from "
+            "Claude's training data – fast, reliable, and API-safe. "
+            "The paper will still cite real, published papers."
+        ),
+    )
+    use_search = search_mode.startswith("Search")
+
+    st.markdown("---")
     st.header("📋 Journal Target")
     journal = st.selectbox(
         "Target journal style",
@@ -184,6 +200,9 @@ if "log_messages" not in st.session_state:
     st.session_state.log_messages = []
 if "running" not in st.session_state:
     st.session_state.running = False
+if "use_search" not in st.session_state:
+    st.session_state.use_search = False
+st.session_state.use_search = use_search
 
 # ---------------------------------------------------------------------------
 # Main content
@@ -219,14 +238,25 @@ with run_col:
     )
 
 with info_col:
-    st.markdown("""
-    **The agent will:**
-    1. Search PubMed with multiple targeted queries
-    2. Fetch and read abstracts of the most relevant papers
-    3. Search Google Scholar for complementary literature
-    4. Draft all paper sections sequentially
-    5. Compile the full Q1-quality manuscript
-    """)
+    if st.session_state.get("use_search"):
+        st.markdown("""
+        **Mode: Search + Draft**
+        1. Search PubMed (2 queries × 5 results)
+        2. Fetch abstracts of top papers
+        3. Search Google Scholar (4 results)
+        4. Draft each section independently
+        5. Compile full manuscript
+        ⚠️ May hit rate limits on free tier.
+        """)
+    else:
+        st.markdown("""
+        **Mode: Draft only (API-safe)**
+        1. Skip live searches entirely
+        2. Draft each section in its own call
+        3. Claude cites real papers from training data
+        4. Compile full Q1 manuscript
+        ✅ Safe for free-tier API limits.
+        """)
 
 # ---------------------------------------------------------------------------
 # Agent execution
@@ -246,7 +276,11 @@ if run_btn:
             log_queue.put(msg)
 
         try:
-            result = run_paper_agent(topic=topic, progress_callback=_log)
+            result = run_paper_agent(
+            topic=topic,
+            search_literature=st.session_state.use_search,
+            progress_callback=_log,
+        )
             result_container["result"] = result
         except Exception as e:
             result_container["error"] = str(e)
