@@ -19,10 +19,9 @@ st.set_page_config(
 st.title("🌊 BiodiversIA – Generador de Paper Científico Q1")
 st.caption("Biodiversidad marina · Ecología · Conservación")
 st.info(
-    "**Cómo funciona:**  \n"
-    "1️⃣ Busca los **15 papers más relevantes en PubMed** *(sin usar API de Claude)*  \n"
-    "2️⃣ Busca los **10 más relevantes en Google Scholar** *(sin usar API de Claude)*  \n"
-    "3️⃣ Con esos 25 papers hace **una sola llamada a Claude** y genera el paper Q1 completo",
+    "**Cómo funciona (rápido, ~40 segundos en total):**  \n"
+    "1️⃣ Busca los **15 papers más relevantes en PubMed** — API de NCBI, gratis, ~5 seg  \n"
+    "2️⃣ **Una sola llamada a Claude** genera el paper Q1 completo con esas referencias — ~30 seg",
     icon="💡"
 )
 
