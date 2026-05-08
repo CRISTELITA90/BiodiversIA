@@ -23,12 +23,12 @@ from anthropic import RateLimitError, APIStatusError
 
 NCBI_BASE   = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 NCBI_EMAIL  = "biodiversia@research.org"
-MODEL       = "claude-sonnet-4-6"
+MODEL       = "claude-haiku-4-5-20251001"   # lighter model, higher rate limit
 
 # Keep each request small to stay under 30k tokens/min on free tier
-MAX_TOKENS_OUTPUT = 2000
+MAX_TOKENS_OUTPUT = 1500
 # Pause between consecutive Claude calls (seconds)
-INTER_CALL_PAUSE  = 15
+INTER_CALL_PAUSE  = 62
 
 # ---------------------------------------------------------------------------
 # Retry helper
@@ -200,12 +200,7 @@ def _format_refs_for_prompt(refs: list) -> str:
 # Section-by-section drafting  (each section = one independent API call)
 # ---------------------------------------------------------------------------
 
-_ROLE = (
-    "You are a senior marine ecologist and science writer. "
-    "Write in formal scientific English. "
-    "Cite papers as (Author et al., Year). "
-    "Use past tense for methods/results; present for established facts."
-)
+_ROLE = "Senior marine ecologist. Formal scientific English. Cite as (Author et al., Year)."
 
 def _draft_section(
     client: anthropic.Anthropic,
@@ -217,87 +212,77 @@ def _draft_section(
 ) -> str:
     """Draft a single section in one API call with no accumulated history."""
 
-    # Build a tight, section-specific prompt
+    title = context.get("title", topic[:60])
+
+    # refs_text is only injected where it adds real value (intro, results, discussion, refs)
+    # For other sections we keep the prompt minimal to save tokens.
     if section == "title":
         prompt = (
-            f"Write ONLY the title of a Q1 scientific paper on:\n{topic}\n\n"
-            "Requirements: ≤18 words, specific, includes habitat type, main variable, "
-            "and geographic scope. Output the title only, no quotes."
+            f"Q1 marine ecology paper title for: {topic}\n"
+            "Rules: ≤18 words, specific, includes habitat + variable + scope. Title only."
         )
 
     elif section == "abstract":
         prompt = (
-            f"Write a structured abstract (≤250 words) for a Q1 paper titled:\n"
-            f"\"{context.get('title','')}\"\n\n"
-            f"Topic: {topic}\n\n"
-            "Use four labelled paragraphs: Background | Methods | Results | Conclusions.\n"
-            "Include quantitative data where possible. Cite 2-3 papers from the list.\n\n"
-            f"Available references:\n{refs_text}"
+            f"Structured abstract ≤220 words for Q1 paper: \"{title}\"\n"
+            "Paragraphs: Background / Methods / Results / Conclusions. "
+            "Include 2-3 quantitative findings. Cite 2 real papers (Author et al., Year)."
         )
 
     elif section == "keywords":
         prompt = (
-            f"List exactly 6 keywords for a paper titled:\n\"{context.get('title','')}\"\n"
-            "Output as a comma-separated line. Use MeSH/EMTREE terms where possible."
+            f"Six MeSH-style keywords for: \"{title}\"\n"
+            "Output: comma-separated, one line only."
         )
 
     elif section == "introduction":
+        refs_block = f"\nREFERENCES AVAILABLE:\n{refs_text}" if refs_text else ""
         prompt = (
-            f"Write the Introduction (550-750 words) for a Q1 paper titled:\n"
-            f"\"{context.get('title','')}\"\n\n"
-            "Structure: broad global context → specific knowledge gap → objectives.\n"
-            "Cite ≥8 papers from the reference list below (or from your own knowledge "
-            "if the list is short). End with a clear statement of the paper's objectives.\n\n"
-            f"Available references:\n{refs_text}"
+            f"Introduction (500-650 words) for Q1 paper: \"{title}\"\n"
+            "Structure: global context → knowledge gap → study objectives.\n"
+            "Cite ≥8 real published papers (Author et al., Year)."
+            + refs_block
         )
 
     elif section == "methods":
         prompt = (
-            f"Write the Materials and Methods section (450-600 words) for:\n"
-            f"\"{context.get('title','')}\"\n\n"
-            "This is a systematic review / meta-analysis. Cover: search strategy, "
-            "databases (PubMed, Web of Science, Google Scholar), inclusion/exclusion criteria, "
-            "data extraction, quality assessment (PRISMA-inspired), and statistical synthesis.\n"
-            "Write in past tense."
+            f"Materials & Methods (400-550 words) for: \"{title}\"\n"
+            "Systematic review design. Cover: databases searched (PubMed, Web of Science, "
+            "Google Scholar), search terms, PRISMA inclusion/exclusion criteria, "
+            "data extraction, and statistical synthesis. Past tense."
         )
 
     elif section == "results":
+        refs_block = f"\nREFERENCES:\n{refs_text}" if refs_text else ""
         prompt = (
-            f"Write the Results section (550-750 words) for:\n"
-            f"\"{context.get('title','')}\"\n\n"
-            "Organise findings under 3-4 sub-headings. Extract and report quantitative "
-            "data (percentages, effect sizes, species counts, temperature anomalies, etc.) "
-            "from the references below. Cite papers inline.\n\n"
-            f"Available references:\n{refs_text}"
+            f"Results section (500-650 words) for: \"{title}\"\n"
+            "3-4 sub-headings. Report quantitative findings (%, species counts, "
+            "temperature anomalies, effect sizes). Cite papers inline."
+            + refs_block
         )
 
     elif section == "discussion":
+        refs_block = f"\nREFERENCES:\n{refs_text}" if refs_text else ""
         prompt = (
-            f"Write the Discussion section (650-850 words) for:\n"
-            f"\"{context.get('title','')}\"\n\n"
-            "Cover: interpretation of results, comparison with prior studies, ecological "
-            "mechanisms, study limitations, conservation policy implications, and "
-            "management recommendations. Cite ≥6 papers.\n\n"
-            f"Available references:\n{refs_text}"
+            f"Discussion (600-750 words) for: \"{title}\"\n"
+            "Cover: result interpretation, comparison with prior work, ecological "
+            "mechanisms, limitations, conservation policy recommendations. Cite ≥5 papers."
+            + refs_block
         )
 
     elif section == "conclusions":
         prompt = (
-            f"Write the Conclusions section (130-180 words) for:\n"
-            f"\"{context.get('title','')}\"\n\n"
-            "Summarise the 3 main findings, state their conservation significance, "
-            "and suggest 2-3 future research directions. No new citations."
+            f"Conclusions (120-160 words) for: \"{title}\"\n"
+            "3 main findings, conservation significance, 2 future research directions. "
+            "No new citations."
         )
 
     elif section == "references":
+        refs_block = f"\nRETRIEVED PAPERS:\n{refs_text}" if refs_text else ""
         prompt = (
-            f"Format a complete References list in APA 7th edition for the paper:\n"
-            f"\"{context.get('title','')}\"\n\n"
-            "Include ALL papers cited in the sections above. Use the details below "
-            "for the retrieved papers; fill in full citations from your training knowledge "
-            "for any additional ones mentioned in the text.\n\n"
-            f"Retrieved papers:\n{refs_text}\n\n"
-            "Output only the formatted reference list, numbered, one per line."
+            f"APA 7th reference list for: \"{title}\"\n"
+            "Include every paper cited in the paper. Numbered, one per line."
+            + refs_block
         )
 
     else:
@@ -361,7 +346,7 @@ def run_paper_agent(
         log(f"  Literature collected: {len(refs_text.splitlines())} reference entries")
     else:
         log("[1/2] Skipping search – using Claude training knowledge.")
-        refs_text = "(Use your training knowledge to cite real, published papers.)"
+        refs_text = ""   # empty → prompts stay minimal
 
     # ------------------------------------------------------------------
     # Phase 2: Draft each section independently
